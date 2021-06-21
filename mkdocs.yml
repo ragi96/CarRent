@@ -1,0 +1,12 @@
+site_name: CarRent Documentation
+site_url: https://example.com/
+repo_url: https://github.com/ragi96/CarRent
+repo_name: ragi96/CarRent
+theme:
+  name: material
+  features: 
+    - navigation.instant
+  icon:
+    repo: fontawesome/brands/github
+plugins:
+  - render_swagger
