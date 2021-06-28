@@ -30,7 +30,7 @@ namespace CarRent
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRent", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRent.API", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace CarRent
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarRent v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarRent.API v1"));
             }
 
             app.UseHttpsRedirection();
