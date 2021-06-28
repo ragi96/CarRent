@@ -1,90 +1,24 @@
-<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="891px" height="428px" viewBox="-0.5 -0.5 891 428" content="&lt;mxfile&gt;&lt;diagram id=&quot;KvfeART2pBRYphK9pVHe&quot; name=&quot;Page-1&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;">
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="891px" height="425px" viewBox="-0.5 -0.5 891 425" content="&lt;mxfile&gt;&lt;diagram id=&quot;KvfeART2pBRYphK9pVHe&quot; name=&quot;Page-1&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;">
     <defs>
-        <clipPath id="mx-clip-4-33-132-26-0">
-            <rect x="4" y="33" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-4-59-132-26-0">
-            <rect x="4" y="59" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-4-201-132-26-0">
-            <rect x="4" y="201" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-4-227-132-26-0">
-            <rect x="4" y="227" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-4-253-132-26-0">
-            <rect x="4" y="253" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-4-279-132-26-0">
-            <rect x="4" y="279" width="132" height="26"/>
-        </clipPath>
         <clipPath id="mx-clip-504-243-132-26-0">
             <rect x="504" y="243" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-344-403-132-26-0">
-            <rect x="344" y="403" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-504-403-132-26-0">
-            <rect x="504" y="403" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-664-403-132-26-0">
-            <rect x="664" y="403" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-754-173-132-26-0">
-            <rect x="754" y="173" width="132" height="26"/>
-        </clipPath>
-        <clipPath id="mx-clip-248-43-132-24-0">
-            <rect x="248" y="43" width="132" height="24"/>
-        </clipPath>
-        <clipPath id="mx-clip-248-67-132-26-0">
-            <rect x="248" y="67" width="132" height="26"/>
         </clipPath>
     </defs>
     <g>
         <path d="M 0 28 L 0 2 L 140 2 L 140 28" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/>
-        <path d="M 0 28 L 0 80 L 140 80 L 140 28" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 28 L 0 54 L 140 54 L 140 28" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <path d="M 0 28 L 140 28" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <g fill="#000000" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="12px">
             <text x="69.5" y="19.5">
                 Customer
             </text>
         </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-33-132-26-0)" font-size="12px">
-            <text x="5.5" y="45.5">
-                + firstName: string
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-59-132-26-0)" font-size="12px">
-            <text x="5.5" y="71.5">
-                + lastName: string
-            </text>
-        </g>
         <path d="M 0 196 L 0 170 L 140 170 L 140 196" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
-        <path d="M 0 196 L 0 300 L 140 300 L 140 196" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 196 L 0 222 L 140 222 L 140 196" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <path d="M 0 196 L 140 196" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <g fill="#000000" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="12px">
             <text x="69.5" y="187.5">
                 Address
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-201-132-26-0)" font-size="12px">
-            <text x="5.5" y="213.5">
-                + street: string
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-227-132-26-0)" font-size="12px">
-            <text x="5.5" y="239.5">
-                + plz: string
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-253-132-26-0)" font-size="12px">
-            <text x="5.5" y="265.5">
-                + city: string
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-279-132-26-0)" font-size="12px">
-            <text x="5.5" y="291.5">
-                + country: string
             </text>
         </g>
         <path d="M 500 238 L 500 212 L 640 212 L 640 238" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
@@ -106,11 +40,6 @@
         <g fill="#000000" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="12px">
             <text x="409.5" y="389.5">
                 SimpleClass
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-344-403-132-26-0)" font-size="12px">
-            <text x="345.5" y="415.5">
-                + field: type
             </text>
         </g>
         <path d="M 410 372 L 521.29 275.85" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
@@ -139,11 +68,6 @@
                 MediumClass
             </text>
         </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-504-403-132-26-0)" font-size="12px">
-            <text x="505.5" y="415.5">
-                + field: type
-            </text>
-        </g>
         <path d="M 570 372 L 570 282.12" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <path d="M 570 265.12 L 578.5 282.12 L 561.5 282.12 Z" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <g transform="translate(-0.5 -0.5)">
@@ -168,11 +92,6 @@
         <g fill="#000000" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="12px">
             <text x="729.5" y="389.5">
                 LuxuryClass
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-664-403-132-26-0)" font-size="12px">
-            <text x="665.5" y="415.5">
-                + field: type
             </text>
         </g>
         <path d="M 730 372 L 616.89 276.66" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
@@ -283,11 +202,6 @@
                 Typ
             </text>
         </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-754-173-132-26-0)" font-size="12px">
-            <text x="755.5" y="185.5">
-                + name: string
-            </text>
-        </g>
         <path d="M 813.98 140.02 L 815.94 52" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <g transform="translate(-0.5 -0.5)">
             <switch>
@@ -355,21 +269,11 @@
             </switch>
         </g>
         <path d="M 244 38 L 244 12 L 384 12 L 384 38" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
-        <path d="M 244 38 L 244 88 L 384 88 L 384 38" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 244 38 L 244 64 L 384 64 L 384 38" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <path d="M 244 38 L 384 38" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
         <g fill="#000000" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="12px">
             <text x="313.5" y="29.5">
                 Reservation
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-248-43-132-24-0)" font-size="12px">
-            <text x="249.5" y="55.5">
-                + startTimestamp: int
-            </text>
-        </g>
-        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-248-67-132-26-0)" font-size="12px">
-            <text x="249.5" y="79.5">
-                + startTimestamp: int
             </text>
         </g>
         <path d="M 244 194 L 244 168 L 384 168 L 384 194" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
