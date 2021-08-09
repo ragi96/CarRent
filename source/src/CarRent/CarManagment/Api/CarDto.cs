@@ -7,5 +7,7 @@ namespace CarRent.CarManagment.Api
 {
     public class CarDTO
     {
+        public string id { get; set; }
+        public string name { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CarRent.CarManagment.Api;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,13 +26,13 @@ namespace CarRent.Controllers
 
         // POST api/<CorController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] CarDTO value)
         {
         }
 
         // PUT api/<CorController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] CarDTO value)
         {
         }
 
