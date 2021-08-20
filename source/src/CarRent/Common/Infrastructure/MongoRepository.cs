@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using CarRent.CarManagment.Application;
 using CarRent.Common.Application;
 using CarRent.Common.Domain;
 using CarRent.Connection;
@@ -55,6 +56,7 @@ namespace CarRent.Common.Infrastructure
 
         public virtual Task<TDocument> FindOneAsync(Expression<Func<TDocument, bool>> filterExpression)
         {
+            
             return Task.Run(() => _collection.Find(filterExpression).FirstOrDefaultAsync());
         }
 
@@ -68,13 +70,20 @@ namespace CarRent.Common.Infrastructure
         public virtual Task<TDocument> FindByIdAsync(string id)
         {
             return Task.Run(() =>
-            {
-
-                    var objectId = new ObjectId(id);
-                    var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
-                    return _collection.Find(filter).SingleOrDefaultAsync();
-            });
+                {
+                    try
+                    {
+                        var objectId = new ObjectId(id);
+                        var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
+                        return _collection.Find(filter).SingleOrDefaultAsync();
+                    }
+                    catch (FormatException ex)
+                    {
+                        throw new NotFoundException();
+                    }
+                });
         }
+
 
 
         public virtual void InsertOne(TDocument document)

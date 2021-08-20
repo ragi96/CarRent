@@ -32,7 +32,14 @@ namespace CarRent.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingle(string id)
         {
-            return Ok(await _carService.FindOneById(id));
+            try
+            {
+                return Ok(await _carService.FindOneById(id));
+            }
+            catch (NotFoundException e)
+            {
+                return NotFound($"Car {id} " + e.Message);
+            }
         }
 
         // POST api/<CarController>
@@ -53,7 +60,10 @@ namespace CarRent.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            return Ok(await _carService.DeleteById(id));
+
+                return Ok(await _carService.DeleteById(id));
+            
+            
         }
     }
 }
