@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CarRent.CarManagment.Application;
-using CarRent.Common.Domain;
+using CarRent.CarManagment.Domain;
+using CarRent.Common;
 
-namespace CarRent.CarManagment.Domain
+namespace CarRent.CarManagment.Application
 {
-    [BsonCollection("car")]
-    public class Car : Document
+    public class GetCarDto
     {
+        public string Id { get; set; }
         public string Name { get; set; }
+
         public GetBrandDto Brand { get; set; }
     }
 }

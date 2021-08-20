@@ -52,6 +52,7 @@ namespace CarRent
 
             services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
             services.AddScoped<ICarService, CarService>();
+            services.AddScoped<IBrandService, BrandService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,7 +8,7 @@ namespace CarRent.Common.Domain
 {
     public class Document : IDocument
     {
-        public ObjectId Id { get; set; }
+        public ObjectId Id { get; set; } = new ObjectId();
 
         public DateTime CreatedAt => Id.CreationTime;
     }
