@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarRent.CarManagment.Application;
+using CarRent.Common;
 using CarRent.Common.Domain;
+using MongoDB.Bson;
 
 namespace CarRent.CarManagment.Domain
 {
@@ -12,5 +14,6 @@ namespace CarRent.CarManagment.Domain
     {
         public string Name { get; set; }
         public GetBrandDto Brand { get; set; }
+
     }
 }
