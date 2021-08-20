@@ -5,12 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.13.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CarManagment\Model\" />
-    <Folder Include="CustomerManagment\Model\" />
+    <Folder Include="CustomerManagment\Domain\" />
+    <Folder Include="CustomerManagment\Infrastructure\" />
+    <Folder Include="CustomerManagment\Application\" />
   </ItemGroup>
 
 </Project>
