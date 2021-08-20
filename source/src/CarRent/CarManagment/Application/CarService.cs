@@ -26,10 +26,10 @@ namespace CarRent.CarManagment.Application
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<GetCarDto>> AddCar(AddCarDto car)
+        public async Task<ServiceResponse<GetCarDto>> AddCar(AddCarDto carDto)
         {
             ServiceResponse<GetCarDto> serviceResponse = new ServiceResponse<GetCarDto>();
-            await _carRepository.InsertOneAsync(_mapper.Map<Car>(car));
+            await _carRepository.InsertOneAsync(_mapper.Map<Car>(carDto));
             return serviceResponse;
         }
 

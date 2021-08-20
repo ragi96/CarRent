@@ -22,7 +22,7 @@ namespace CarRent.Common.Infrastructure
             _collection = database.GetCollection<TDocument>(GetCollectionName(typeof(TDocument)));
         }
 
-        private protected string GetCollectionName(Type documentType)
+        private static string GetCollectionName(Type documentType)
         {
             return ((BsonCollectionAttribute)documentType.GetCustomAttributes(
                     typeof(BsonCollectionAttribute),
