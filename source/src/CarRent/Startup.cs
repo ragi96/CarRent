@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CarRent.CarManagment.Application;
+using CarRent.CarManagment.Domain;
+using CarRent.Common.Infrastructure;
 using CarRent.Connection;
 using Microsoft.Extensions.Options;
 
@@ -33,11 +36,17 @@ namespace CarRent
             services.AddSingleton<IMongoDbSettings>(serviceProvider =>
                 serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 
+            
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRent.API", Version = "v1" });
             });
+
+            services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
+            services.AddScoped<ICarService, CarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

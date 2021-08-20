@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
-using CarRent.CarManagment.Api;
+using System.Threading.Tasks;
+using CarRent.CarManagment.Application;
+using CarRent.CarManagment.Domain;
+using CarRent.Common.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,33 +13,40 @@ namespace CarRent.Controllers
     [ApiController]
     public class CarController : ControllerBase
     {
-        // GET: api/<CorController>
+        private readonly ICarService _carService;
+
+        public CarController(ICarService carService)
+        {
+            _carService = carService;
+        }
+        // GET: api/<CarController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<CarDTO> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new CarDTO[] { new CarDTO(), new CarDTO() };
         }
 
-        // GET api/<CorController>/5
+        // GET api/<CarController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public CarDTO Get(string id)
         {
-            return "value";
+            return _carService.FindOneById(id);
         }
 
-        // POST api/<CorController>
+        // POST api/<CarController>
         [HttpPost]
-        public void Post([FromBody] CarDTO value)
+        public void Post([FromBody] CarDTO car)
         {
+            _carService.AddCar(car);
         }
 
-        // PUT api/<CorController>/5
+        // PUT api/<CarController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] CarDTO value)
         {
         }
 
-        // DELETE api/<CorController>/5
+        // DELETE api/<CarController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
