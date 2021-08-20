@@ -11,8 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CarRent.CarManagment.Application;
 using CarRent.CarManagment.Domain;
+using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using CarRent.Connection;
 using Microsoft.Extensions.Options;
@@ -38,7 +40,10 @@ namespace CarRent
 
             
             services.AddControllers();
-            services.AddAutoMapper(typeof(Startup));
+
+
+            services.AddAutoMapper(c => c.AddProfile<AutoMapping>(), typeof(Startup));
+
 
             services.AddSwaggerGen(c =>
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using CarRent.Common.Application;
 using CarRent.Common.Domain;
 using CarRent.Connection;
 using MongoDB.Bson;
@@ -68,9 +69,10 @@ namespace CarRent.Common.Infrastructure
         {
             return Task.Run(() =>
             {
-                var objectId = new ObjectId(id);
-                var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
-                return _collection.Find(filter).SingleOrDefaultAsync();
+
+                    var objectId = new ObjectId(id);
+                    var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
+                    return _collection.Find(filter).SingleOrDefaultAsync();
             });
         }
 

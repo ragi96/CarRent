@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace CarRent.CarManagment.Application
 {
-    public class CarDTO
-    {
-        public string Id { get; set; }
+    public class AddCarDTO
+    { 
         public string Name { get; set; }
     }
 }

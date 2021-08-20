@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CarRent.CarManagment.Application;
 using CarRent.CarManagment.Domain;
+using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,28 +23,30 @@ namespace CarRent.Controllers
         }
         // GET: api/<CarController>
         [HttpGet]
-        public IEnumerable<CarDTO> Get()
+        public async Task<IActionResult> Get()
         {
-            return new CarDTO[] { new CarDTO(), new CarDTO() };
+            return Ok(await _carService.FindAll());
         }
 
         // GET api/<CarController>/5
         [HttpGet("{id}")]
-        public CarDTO Get(string id)
+        public async Task<IActionResult> GetSingle(string id)
         {
-            return _carService.FindOneById(id);
-        }
+
+                return Ok(await _carService.FindOneById(id));
+
+            }
 
         // POST api/<CarController>
         [HttpPost]
-        public void Post([FromBody] CarDTO car)
+        public void Post([FromBody] AddCarDTO car)
         {
             _carService.AddCar(car);
         }
 
         // PUT api/<CarController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] CarDTO value)
+        public void Put(int id, [FromBody] GetCarDTO value)
         {
         }
 

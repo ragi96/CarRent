@@ -8,12 +8,11 @@ using CarRent.CarManagment.Domain;
 
 namespace CarRent.Common.Application
 {
-    public class AutoMapperProfile : Profile
+    public class AutoMapping : Profile
     {
-        public AutoMapperProfile()
-        {
-            CreateMap<Car, CarDTO>();
-            CreateMap<CarDTO, Car>();
+        public AutoMapping() {
+            CreateMap<Car, GetCarDTO>();
+            CreateMap<AddCarDTO, Car>();
         }
     }
 }

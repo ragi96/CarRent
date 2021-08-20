@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AutoMapper;
+using AutoMapper.Internal;
+using AutoMapper.Mappers;
+using AutoMapper.QueryableExtensions;
 using CarRent.CarManagment.Domain;
+using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using MongoDB.Bson;
 
@@ -21,14 +26,25 @@ namespace CarRent.CarManagment.Application
             _mapper = mapper;
         }
 
-        public async Task AddCar(CarDTO car)
+        public async Task<ServiceResponse<GetCarDTO>> AddCar(AddCarDTO car)
         {
+            ServiceResponse<GetCarDTO> serviceResponse = new ServiceResponse<GetCarDTO>();
             await _carRepository.InsertOneAsync(_mapper.Map<Car>(car));
+            return serviceResponse;
         }
 
-        public CarDTO FindOneById(string id)
+        public async Task<ServiceResponse<GetCarDTO>> FindOneById(string id)
         {
-            return _mapper.Map<CarDTO>(_carRepository.FindById(id));
+            ServiceResponse<GetCarDTO> serviceResponse = new ServiceResponse<GetCarDTO>();
+            serviceResponse.Data = _mapper.Map<GetCarDTO>(_carRepository.FindByIdAsync(id).Result);
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<IEnumerable<GetCarDTO>>> FindAll()
+        {
+            ServiceResponse<IEnumerable<GetCarDTO>> serviceResponse = new ServiceResponse<IEnumerable<GetCarDTO>>();
+            serviceResponse.Data = _carRepository.FilterBy(c => c.Name != "").AsQueryable().ProjectTo<GetCarDTO>(_mapper.ConfigurationProvider).AsEnumerable<GetCarDTO>();
+            return serviceResponse;
         }
     }
 }
