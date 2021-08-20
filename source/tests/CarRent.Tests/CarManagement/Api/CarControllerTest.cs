@@ -33,7 +33,7 @@ namespace CarRent.Tests.CarManagement.Api
         public void Get_WhenCalled_ReturnsTaskIActionResult()
         {
             // Arrange
-            var task = A.Fake<Task<ServiceResponse<IEnumerable<GetCarDto>>>>();
+            var task = A.Fake<Task<ServiceResponse<IEnumerable<CarDto>>>>();
             // Act
             var result = _controller.Get();
             A.CallTo(() => _service.FindAll()).MustHaveHappened();
