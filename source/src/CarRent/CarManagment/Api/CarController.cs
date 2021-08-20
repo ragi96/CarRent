@@ -37,14 +37,14 @@ namespace CarRent.Controllers
 
         // POST api/<CarController>
         [HttpPost]
-        public void Post([FromBody] AddCarDto car)
+        public void Post([FromBody] CarDto car)
         {
             _carService.AddCar(car);
         }
 
         // PUT api/<CarController>/5
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] GetCarDto car)
+        public async Task<IActionResult> Put([FromBody] CarDto car)
         {
             return Ok(await _carService.Update(car));
         }

@@ -25,46 +25,46 @@ namespace CarRent.Tests.CarManagement.Application
         [Fact]
         public void AddCar_MapperDtoToDomainModel_IsCalled()
         {
-            var addCarDto = A.Fake<AddCarDto>();
+            var carDto = A.Fake<CarDto>();
 
-            var answer =_service.AddCar(addCarDto);
-            A.CallTo(() => _mapper.Map<Car>(addCarDto)).MustHaveHappened();
-            Assert.IsType<Task<ServiceResponse<GetCarDto>>>(answer);
+            var answer =_service.AddCar(carDto);
+            A.CallTo(() => _mapper.Map<Car>(carDto)).MustHaveHappened();
+            Assert.IsType<Task<ServiceResponse<CarDto>>>(answer);
         }
 
         [Fact]
         public void AddCar_MapperDtoToDm_ReturnsCar()
         {
-            var addCarDto = A.Fake<AddCarDto>();
+            var carDto = A.Fake<CarDto>();
             var car = A.Fake<Car>();
-            var answer = _service.AddCar(addCarDto);
-            A.CallTo(() => _mapper.Map<Car>(addCarDto)).Returns(car);
-            Assert.IsType<Task<ServiceResponse<GetCarDto>>>(answer);
+            var answer = _service.AddCar(carDto);
+            A.CallTo(() => _mapper.Map<Car>(carDto)).Returns(car);
+            Assert.IsType<Task<ServiceResponse<CarDto>>>(answer);
         }
 
         [Fact]
         public void AddCar_RepoInsertOneAsync_Returns()
         {
-            var addCarDto = A.Fake<AddCarDto>();
+            var carDto = A.Fake<CarDto>();
             var car = A.Fake<Car>();
 
-            var answer = _service.AddCar(addCarDto);
+            var answer = _service.AddCar(carDto);
             A.CallTo(() => _repo.InsertOneAsync(car)).Returns(A.Fake<Task>());
 
-            Assert.IsType<Task<ServiceResponse<GetCarDto>>>(answer);
+            Assert.IsType<Task<ServiceResponse<CarDto>>>(answer);
         }
 
         [Fact]
         public void FindOneById_MapperDtoToDomainModel_ReturnsGetCarDto()
         {
-            var getCarDto = A.Fake<GetCarDto>();
+            var getCarDto = A.Fake<CarDto>();
             var car = A.Fake<Car>();
             var id = "asd324a4sda0xsd34234";
 
             var foundCar = _service.FindOneById(id).Result;
-            A.CallTo(() => _mapper.Map<GetCarDto>(car)).Returns(getCarDto);
+            A.CallTo(() => _mapper.Map<CarDto>(car)).Returns(getCarDto);
 
-            Assert.IsType<ServiceResponse<GetCarDto>>(foundCar);
+            Assert.IsType<ServiceResponse<CarDto>>(foundCar);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace CarRent.Tests.CarManagement.Application
             var car = _service.FindOneById(id);
             A.CallTo(() => _repo.FindByIdAsync(id)).Returns(A.Fake<Task<Car>>());
 
-            Assert.IsType<Task<ServiceResponse<GetCarDto>>>(car);
+            Assert.IsType<Task<ServiceResponse<CarDto>>>(car);
         }
     }
 }
