@@ -11,8 +11,8 @@ namespace CarRent.Common.Application
     public class AutoMapping : Profile
     {
         public AutoMapping() {
-            CreateMap<Car, GetCarDTO>();
-            CreateMap<AddCarDTO, Car>();
+            CreateMap<Car, GetCarDto>();
+            CreateMap<AddCarDto, Car>();
         }
     }
 }
