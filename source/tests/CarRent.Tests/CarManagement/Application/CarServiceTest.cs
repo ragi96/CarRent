@@ -38,8 +38,9 @@ namespace CarRent.Tests.CarManagement.Application
         {
             var addCarDto = A.Fake<AddCarDto>();
 
-            _service.AddCar(addCarDto);
+            var answer =_service.AddCar(addCarDto);
             A.CallTo(() => _mapper.Map<Car>(addCarDto)).MustHaveHappened();
+            Assert.IsInstanceOf<Task<ServiceResponse<GetCarDto>>>(answer);
         }
 
         [Test]
@@ -47,8 +48,9 @@ namespace CarRent.Tests.CarManagement.Application
         {
             var addCarDto = A.Fake<AddCarDto>();
             var car = A.Fake<Car>();
-            _service.AddCar(addCarDto);
+            var answer = _service.AddCar(addCarDto);
             A.CallTo(() => _mapper.Map<Car>(addCarDto)).Returns(car);
+            Assert.IsInstanceOf<Task<ServiceResponse<GetCarDto>>>(answer);
         }
 
         [Test]
@@ -56,8 +58,11 @@ namespace CarRent.Tests.CarManagement.Application
         {
             var addCarDto = A.Fake<AddCarDto>();
             var car = A.Fake<Car>();
-            _service.AddCar(addCarDto);
+
+            var answer = _service.AddCar(addCarDto);
             A.CallTo(() => _repo.InsertOneAsync(car)).Returns(A.Fake<Task>());
+
+            Assert.IsInstanceOf<Task<ServiceResponse<GetCarDto>>>(answer);
         }
 
         [Test]
@@ -67,8 +72,10 @@ namespace CarRent.Tests.CarManagement.Application
             var car = A.Fake<Car>();
             var id = "asd324a4sda0xsd34234";
 
-            _service.FindOneById(id);
+            var foundCar = _service.FindOneById(id).Result;
             A.CallTo(() => _mapper.Map<GetCarDto>(car)).Returns(getCarDto);
+
+            Assert.IsInstanceOf<ServiceResponse<GetCarDto>>(foundCar);
         }
 
         [Test]
@@ -76,8 +83,10 @@ namespace CarRent.Tests.CarManagement.Application
         {
             var id = "asd324a4sda0xsd34234";
 
-            _service.FindOneById(id);
+            var car = _service.FindOneById(id);
             A.CallTo(() => _repo.FindByIdAsync(id)).Returns(A.Fake<Task<Car>>());
+
+            Assert.IsInstanceOf<Task<ServiceResponse<GetCarDto>>>(car);
         }
     }
 }

@@ -38,21 +38,18 @@ namespace CarRent.Tests.CarManagement.Api
         }
 
         [Test]
-        public void Get_WhenCalled_ReturnsServiceResponse()
+        public void Get_WhenCalled_ReturnsTaskIActionResult()
         {
             // Arrange
             var task = A.Fake<Task<ServiceResponse<IEnumerable<GetCarDto>>>>();
             // Act
-            _controller.Get();
-            // Assert
-            A.CallTo(() => _service.FindAll()).Equals(task);
-        }
-
-        [Test]
-        public void Get_WhenCalled_ServiceFindAllHappened()
-        {
-            _controller.Get();
+            var result = _controller.Get();
             A.CallTo(() => _service.FindAll()).MustHaveHappened();
+            A.CallTo(() => _service.FindAll()).Equals(task);
+
+            // Assert
+            Assert.IsInstanceOf<Task<IActionResult>>(result);
+
         }
     }
 }
