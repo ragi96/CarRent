@@ -20,6 +20,7 @@ namespace CarRent.CarManagment.Application
         private readonly IMongoRepository<Car> _carRepository;
 
         private readonly IMapper _mapper;
+
         public CarService(IMongoRepository<Car> carRepository, IMapper mapper)
         {
             _carRepository = carRepository;
@@ -35,15 +36,16 @@ namespace CarRent.CarManagment.Application
 
         public async Task<ServiceResponse<GetCarDto>> FindOneById(string id)
         {
-            ServiceResponse<GetCarDto> serviceResponse = new ServiceResponse<GetCarDto>();
-            serviceResponse.Data = _mapper.Map<GetCarDto>(_carRepository.FindByIdAsync(id).Result);
+            ServiceResponse<GetCarDto> serviceResponse = new ServiceResponse<GetCarDto>(); 
+            var tCar = await _carRepository.FindByIdAsync(id);
+            serviceResponse.Data = _mapper.Map<GetCarDto>(tCar);
             return serviceResponse;
         }
 
         public async Task<ServiceResponse<IEnumerable<GetCarDto>>> FindAll()
         {
             ServiceResponse<IEnumerable<GetCarDto>> serviceResponse = new ServiceResponse<IEnumerable<GetCarDto>>();
-            serviceResponse.Data = _carRepository.FilterBy(c => c.Name != "").AsQueryable().ProjectTo<GetCarDto>(_mapper.ConfigurationProvider).AsEnumerable<GetCarDto>();
+            serviceResponse.Data = _carRepository.FilterBy(_ => true).AsQueryable().ProjectTo<GetCarDto>(_mapper.ConfigurationProvider).AsEnumerable<GetCarDto>();
             return serviceResponse;
         }
 

@@ -4,26 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarRent.CarManagment.Application;
+using CarRent.CarManagment.Domain;
 using CarRent.Common.Application;
 using CarRent.Controllers;
 using CarRent.Tests.CarManagement.Application;
+using FakeItEasy;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 
 namespace CarRent.Tests.CarManagement.Api
 {
+    [TestFixture]
     public class CarControllerTest
     {
         CarController _controller;
         ICarService _service;
 
-        public CarControllerTest()
+        [SetUp]
+        public void Init()
         {
-            _service = new CarServiceFake();
+            _service = A.Fake<ICarService>();
             _controller = new CarController(_service);
         }
-
 
         [Test]
         public void Get_FindAll_ReturnsOkResult()
@@ -35,14 +38,21 @@ namespace CarRent.Tests.CarManagement.Api
         }
 
         [Test]
-        public void Get_WhenCalled_ReturnsAllItems()
+        public void Get_WhenCalled_ReturnsServiceResponse()
         {
             // Arrange
-            var okResult = _controller.Get().Result as OkObjectResult;
+            var task = A.Fake<Task<ServiceResponse<IEnumerable<GetCarDto>>>>();
             // Act
-            var items = (ServiceResponse<IEnumerable<GetCarDto>>) okResult.Value;
+            _controller.Get();
             // Assert
-            Assert.AreEqual(7, items.Data.Count());
+            A.CallTo(() => _service.FindAll()).Equals(task);
+        }
+
+        [Test]
+        public void Get_WhenCalled_ServiceFindAllHappened()
+        {
+            _controller.Get();
+            A.CallTo(() => _service.FindAll()).MustHaveHappened();
         }
     }
 }
