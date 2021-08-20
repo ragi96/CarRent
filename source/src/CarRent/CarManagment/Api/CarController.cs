@@ -37,14 +37,14 @@ namespace CarRent.Controllers
 
         // POST api/<CarController>
         [HttpPost]
-        public void Post([FromBody] AddCarDTO car)
+        public void Post([FromBody] AddCarDto car)
         {
             _carService.AddCar(car);
         }
 
         // PUT api/<CarController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] GetCarDTO value)
+        public void Put(int id, [FromBody] GetCarDto value)
         {
         }
 
