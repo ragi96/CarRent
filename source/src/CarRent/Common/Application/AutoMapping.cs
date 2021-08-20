@@ -5,14 +5,16 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CarRent.CarManagment.Application;
 using CarRent.CarManagment.Domain;
+using MongoDB.Bson;
 
 namespace CarRent.Common.Application
 {
     public class AutoMapping : Profile
     {
         public AutoMapping() {
-            CreateMap<Car, CarDto>();
-            CreateMap<CarDto, Car>();
+            CreateMap<Car, GetCarDto>();
+            CreateMap<GetCarDto, Car>().ForMember(getCarDto => getCarDto.Id, car => car.MapFrom(s => new ObjectId(s.Id)));
+            CreateMap<AddCarDto, Car>().ForAllOtherMembers(opts => opts.Ignore());
         }
     }
 }
