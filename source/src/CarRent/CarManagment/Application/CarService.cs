@@ -46,5 +46,22 @@ namespace CarRent.CarManagment.Application
             serviceResponse.Data = _carRepository.FilterBy(c => c.Name != "").AsQueryable().ProjectTo<GetCarDto>(_mapper.ConfigurationProvider).AsEnumerable<GetCarDto>();
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<GetCarDto>> Update(GetCarDto carDto)
+        {
+            ServiceResponse<GetCarDto> serviceResponse = new ServiceResponse<GetCarDto>();
+            var car = _mapper.Map<Car>(carDto);
+            await _carRepository.ReplaceOneAsync(car);
+            serviceResponse.Data = _mapper.Map<GetCarDto>(_carRepository.FindByIdAsync(car.Id.ToString()).Result);
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<IEnumerable<GetCarDto>>> DeleteById(string id)
+        {
+            await _carRepository.DeleteByIdAsync(id);
+            ServiceResponse<IEnumerable<GetCarDto>> serviceResponse = new ServiceResponse<IEnumerable<GetCarDto>>();
+            serviceResponse.Data = _carRepository.FilterBy(c => c.Name != "").AsQueryable().ProjectTo<GetCarDto>(_mapper.ConfigurationProvider).AsEnumerable<GetCarDto>();
+            return serviceResponse;
+        }
     }
 }
