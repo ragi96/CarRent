@@ -10,10 +10,10 @@ namespace CarRent.CarManagment.Application
 {
     public interface ICarService
     {
-        Task<ServiceResponse<GetCarDTO>> AddCar(AddCarDTO car);
+        Task<ServiceResponse<GetCarDto>> AddCar(AddCarDto car);
 
-        Task<ServiceResponse<GetCarDTO>> FindOneById(string id);
+        Task<ServiceResponse<GetCarDto>> FindOneById(string id);
 
-        Task<ServiceResponse<IEnumerable<GetCarDTO>>> FindAll();
+        Task<ServiceResponse<IEnumerable<GetCarDto>>> FindAll();
     }
 }

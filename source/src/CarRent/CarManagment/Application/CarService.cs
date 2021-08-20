@@ -26,24 +26,24 @@ namespace CarRent.CarManagment.Application
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<GetCarDTO>> AddCar(AddCarDTO car)
+        public async Task<ServiceResponse<GetCarDto>> AddCar(AddCarDto car)
         {
-            ServiceResponse<GetCarDTO> serviceResponse = new ServiceResponse<GetCarDTO>();
+            ServiceResponse<GetCarDto> serviceResponse = new ServiceResponse<GetCarDto>();
             await _carRepository.InsertOneAsync(_mapper.Map<Car>(car));
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<GetCarDTO>> FindOneById(string id)
+        public async Task<ServiceResponse<GetCarDto>> FindOneById(string id)
         {
-            ServiceResponse<GetCarDTO> serviceResponse = new ServiceResponse<GetCarDTO>();
-            serviceResponse.Data = _mapper.Map<GetCarDTO>(_carRepository.FindByIdAsync(id).Result);
+            ServiceResponse<GetCarDto> serviceResponse = new ServiceResponse<GetCarDto>();
+            serviceResponse.Data = _mapper.Map<GetCarDto>(_carRepository.FindByIdAsync(id).Result);
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<IEnumerable<GetCarDTO>>> FindAll()
+        public async Task<ServiceResponse<IEnumerable<GetCarDto>>> FindAll()
         {
-            ServiceResponse<IEnumerable<GetCarDTO>> serviceResponse = new ServiceResponse<IEnumerable<GetCarDTO>>();
-            serviceResponse.Data = _carRepository.FilterBy(c => c.Name != "").AsQueryable().ProjectTo<GetCarDTO>(_mapper.ConfigurationProvider).AsEnumerable<GetCarDTO>();
+            ServiceResponse<IEnumerable<GetCarDto>> serviceResponse = new ServiceResponse<IEnumerable<GetCarDto>>();
+            serviceResponse.Data = _carRepository.FilterBy(c => c.Name != "").AsQueryable().ProjectTo<GetCarDto>(_mapper.ConfigurationProvider).AsEnumerable<GetCarDto>();
             return serviceResponse;
         }
     }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CarRent.CarManagment.Application
 {
-    public class GetCarDTO
+    public class GetCarDto
     {
         public string Id { get; set; }
         public string Name { get; set; }

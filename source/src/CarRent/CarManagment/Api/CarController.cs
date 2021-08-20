@@ -32,10 +32,8 @@ namespace CarRent.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingle(string id)
         {
-
-                return Ok(await _carService.FindOneById(id));
-
-            }
+            return Ok(await _carService.FindOneById(id));
+        }
 
         // POST api/<CarController>
         [HttpPost]
