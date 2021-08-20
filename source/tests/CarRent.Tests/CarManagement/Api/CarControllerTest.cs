@@ -1,43 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CarRent.CarManagment.Application;
-using CarRent.CarManagment.Domain;
 using CarRent.Common.Application;
 using CarRent.Controllers;
-using CarRent.Tests.CarManagement.Application;
 using FakeItEasy;
 using Microsoft.AspNetCore.Mvc;
-using NUnit.Framework;
-using NUnit.Framework.Constraints;
+using Xunit;
 
 namespace CarRent.Tests.CarManagement.Api
 {
-    [TestFixture]
-    public class CarControllerTest
+    public class CarControllerTests
     {
-        CarController _controller;
-        ICarService _service;
-
-        [SetUp]
-        public void Init()
+        public CarController _controller;
+        public ICarService _service;
+        public CarControllerTests()
         {
             _service = A.Fake<ICarService>();
             _controller = new CarController(_service);
         }
 
-        [Test]
+        [Fact]
         public void Get_FindAll_ReturnsOkResult()
         {
             // Arrange
             var result = _controller.Get();
             // Assert
-            Assert.IsInstanceOf<OkObjectResult>(result.Result);
+            Assert.IsType<OkObjectResult>(result.Result);
         }
 
-        [Test]
+        [Fact]
         public void Get_WhenCalled_ReturnsTaskIActionResult()
         {
             // Arrange
@@ -48,7 +40,7 @@ namespace CarRent.Tests.CarManagement.Api
             A.CallTo(() => _service.FindAll()).Equals(task);
 
             // Assert
-            Assert.IsInstanceOf<Task<IActionResult>>(result);
+            Assert.IsType<Task<IActionResult>>(result);
 
         }
     }
