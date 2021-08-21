@@ -77,7 +77,7 @@ namespace CarRent.Common.Infrastructure
                         var filter = Builders<TDocument>.Filter.Eq(doc => doc.Id, objectId);
                         return _collection.Find(filter).SingleOrDefaultAsync();
                     }
-                    catch (FormatException ex)
+                    catch (FormatException)
                     {
                         throw new NotFoundException();
                     }

@@ -9,6 +9,6 @@ namespace CarRent.CarManagment.Application
     {
         public string Name { get; set; }
 
-        public GetBrandDto Brand { get; set;  }
+        public string BrandId { get; set;  }
     }
 }

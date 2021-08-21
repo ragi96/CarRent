@@ -12,8 +12,8 @@ namespace CarRent.Tests.CarManagement.Api
 {
     public class CarControllerTests
     {
-        public CarController _controller;
-        public ICarService _service;
+        private readonly CarController _controller;
+        private readonly ICarService _service;
         public CarControllerTests()
         {
             _service = A.Fake<ICarService>();

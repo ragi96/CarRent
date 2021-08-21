@@ -13,8 +13,8 @@ namespace CarRent.Tests.CarManagement.Api
 {
     public class BrandControllerTests
     {
-        public BrandController _controller;
-        public IBrandService _service;
+        private readonly BrandController _controller;
+        private readonly IBrandService _service;
         public BrandControllerTests()
         {
             _service = A.Fake<IBrandService>();
@@ -34,7 +34,7 @@ namespace CarRent.Tests.CarManagement.Api
         public void Get_WhenCalled_ReturnsTaskIActionResult()
         {
             // Arrange
-            var task = A.Fake<Task<ServiceResponse<IEnumerable<GetCarDto>>>>();
+            var task = A.Fake<Task<ServiceResponse<IEnumerable<GetBrandDto>>>>();
             // Act
             var result = _controller.Get();
             A.CallTo(() => _service.FindAll()).MustHaveHappened();

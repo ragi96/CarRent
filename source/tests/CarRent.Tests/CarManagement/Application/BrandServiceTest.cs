@@ -72,10 +72,10 @@ namespace CarRent.Tests.CarManagement.Application
         {
             var id = "asd324a4sda0xsd34234";
 
-            var car = _service.FindOneById(id);
+            var brand = _service.FindOneById(id);
             A.CallTo(() => _repo.FindByIdAsync(id)).Returns(A.Fake<Task<Brand>>());
 
-            Assert.IsType<Task<ServiceResponse<GetBrandDto>>>(car);
+            Assert.IsType<Task<ServiceResponse<GetBrandDto>>>(brand);
         }
     }
 }

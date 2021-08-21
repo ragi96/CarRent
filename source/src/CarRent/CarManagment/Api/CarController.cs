@@ -60,10 +60,7 @@ namespace CarRent.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-
-                return Ok(await _carService.DeleteById(id));
-            
-            
+            return Ok(await _carService.DeleteById(id));
         }
     }
 }

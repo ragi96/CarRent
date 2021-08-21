@@ -10,7 +10,7 @@ namespace CarRent.CarManagment.Application
 {
     public interface IBrandService
     {
-        Task<ServiceResponse<GetBrandDto>> AddBrand(AddBrandDto branDto);
+        Task<ServiceResponse<GetBrandDto>> AddBrand(AddBrandDto brandDto);
 
         Task<ServiceResponse<GetBrandDto>> FindOneById(string id);
 

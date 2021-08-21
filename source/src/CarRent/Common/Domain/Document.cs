@@ -8,8 +8,13 @@ namespace CarRent.Common.Domain
 {
     public class Document : IDocument
     {
-        public ObjectId Id { get; set; } = new ObjectId();
+        public ObjectId Id { get; set; }
 
         public DateTime CreatedAt => Id.CreationTime;
+
+        public Document()
+        {
+            this.Id = ObjectId.GenerateNewId();
+        }
     }
 }
