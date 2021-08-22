@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
 using CarRent.CarManagment.Application;
+using CarRent.CarManagment.Application.Mapper;
 using CarRent.CarManagment.Domain;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
@@ -13,13 +14,15 @@ namespace CarRent.Tests.CarManagement.Application
     {
         private readonly IBrandService _service;
         private readonly IMongoRepository<Brand> _repo;
+        private readonly IBrandServiceMapper _ownMapper;
         private readonly IMapper _mapper;
 
         public BrandServiceTest()
         {
             _repo = A.Fake<IMongoRepository<Brand>>();
+            _ownMapper = A.Fake<BrandServiceMapper>();
             _mapper = A.Fake<IMapper>();
-            _service = new BrandService(_repo, _mapper);
+            _service = new BrandService(_repo, _ownMapper, _mapper);
         }
 
         [Fact]
@@ -49,7 +52,7 @@ namespace CarRent.Tests.CarManagement.Application
             var brand = A.Fake<Brand>();
 
             var answer = _service.AddBrand(brandDto);
-            A.CallTo(() => _repo.InsertOneAsync(brand)).Returns(A.Fake<Task>());
+            A.CallTo(() => _repo.Save(brand)).Returns(A.Fake<Task>());
 
             Assert.IsType<Task<ServiceResponse<GetBrandDto>>>(answer);
         }
@@ -73,7 +76,7 @@ namespace CarRent.Tests.CarManagement.Application
             var id = "asd324a4sda0xsd34234";
 
             var brand = _service.FindOneById(id);
-            A.CallTo(() => _repo.FindByIdAsync(id)).Returns(A.Fake<Task<Brand>>());
+            A.CallTo(() => _repo.GetById(id)).Returns(A.Fake<Task<Brand>>());
 
             Assert.IsType<Task<ServiceResponse<GetBrandDto>>>(brand);
         }

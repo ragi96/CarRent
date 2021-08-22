@@ -60,7 +60,7 @@ namespace CarRent.CarManagment.Application
             ServiceResponse<GetBrandDto> serviceResponse = new ServiceResponse<GetBrandDto>();
             var brand = _mapper.Map<Brand>(brandDto);
             await _brandRepository.Save(brand);
-            serviceResponse.Data = _mapper.Map<GetBrandDto>(await _brandRepository.GetById(brand.ID));
+            serviceResponse.Data = _brandMapper.MapToGetBrandDto(await _brandRepository.GetById(brand.ID));
             return serviceResponse;
         }
 

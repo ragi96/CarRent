@@ -58,6 +58,15 @@ namespace CarRent.CarManagment.Application
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<GetCarDto>> Update(GetCarDto brandDto)
+        {
+            ServiceResponse<GetCarDto> serviceResponse = new ServiceResponse<GetCarDto>();
+            var brand = _mapper.Map<Brand>(brandDto);
+            await _brandRepository.Save(brand);
+            serviceResponse.Data = _carMapper.MapToGetCarDto(await _carRepository.GetById(brand.ID));
+            return serviceResponse;
+        }
+
         /*  public async Task<ServiceResponse<GetCarDto>> Update(GetCarDto carDto)
          {
              ServiceResponse<GetCarDto> serviceResponse = new ServiceResponse<GetCarDto>();

@@ -48,7 +48,7 @@ namespace CarRent.Controllers
         {
             _carService.AddCar(car);
         }
-        /*
+        
         // PUT api/<CarController>/5
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] GetCarDto car)
@@ -57,10 +57,10 @@ namespace CarRent.Controllers
         }
 
         // DELETE api/<CarController>/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
-        {
-            return Ok(await _carService.DeleteById(id));
-        }*/
+        /*[HttpDelete("{id}")]
+         public async Task<IActionResult> Delete(string id)
+          {
+              return Ok(await _carService.DeleteById(id));
+          }*/
     }
 }
