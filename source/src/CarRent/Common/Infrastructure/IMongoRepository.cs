@@ -10,8 +10,8 @@ namespace CarRent.Common.Infrastructure
     public interface IMongoRepository<TDocument> where TDocument : IEntity
     {
 
-        public Task Save(TDocument bookToSave);
-        public Task<TDocument> GetById(string title);
+        public Task Save(TDocument toSave);
+        public Task<TDocument> GetById(string id);
         public Task<List<TDocument>> GetAll();
     }
 }
