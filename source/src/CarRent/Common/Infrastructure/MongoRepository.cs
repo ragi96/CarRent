@@ -1,5 +1,7 @@
 ﻿
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MongoDB.Entities;
 
@@ -26,5 +28,16 @@ namespace CarRent.Common.Infrastructure
                 .Match(b => b.ID == id)
                 .ExecuteSingleAsync();
         }
+
+        public Task DeleteById(string id)
+        {
+            return DB.DeleteAsync<TDocument>(id);
+        }
+
+        public Task<List<TDocument>> FilterBy(Expression<Func<TDocument, bool>> filterExpression)
+        {
+            return DB.Find<TDocument>().ManyAsync(filterExpression);
+        }
+
     }
 }

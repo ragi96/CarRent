@@ -17,11 +17,12 @@ namespace CarRent.CarManagment.Application
         }
         public GetCarDto MapToGetCarDto(Car car)
         {
+            var brand = car.Brand.ToEntityAsync().Result;
             return new GetCarDto
             {
                 Id = car.ID,
                 Name = car.Name,
-                BrandDto = _brandServiceMapper.MapToGetBrandDto(car.Brand.ToEntityAsync().Result)
+                BrandDto = _brandServiceMapper.MapToGetBrandDto(brand)
             };
         }
 

@@ -23,11 +23,14 @@ namespace CarRent.CarManagment.Application
 
         private readonly IBrandServiceMapper _brandMapper;
 
+        private readonly IMongoRepository<Car> _carRepository;
+
         private readonly IMapper _mapper;
 
-        public BrandService(IMongoRepository<Brand> brandRepository, IBrandServiceMapper brandMapper, IMapper mapper)
+        public BrandService(IMongoRepository<Brand> brandRepository, IBrandServiceMapper brandMapper, IMongoRepository<Car> carRepository, IMapper mapper)
         {
             _brandRepository = brandRepository;
+            _carRepository = carRepository;
             _brandMapper = brandMapper;
             _mapper = mapper;
         }
@@ -62,14 +65,22 @@ namespace CarRent.CarManagment.Application
             await _brandRepository.Save(brand);
             serviceResponse.Data = _brandMapper.MapToGetBrandDto(await _brandRepository.GetById(brand.ID));
             return serviceResponse;
-        }
+       }
 
-           /*      public async Task<ServiceResponse<IEnumerable<GetBrandDto>>> DeleteById(string id)
-               {
-                  await _brandRepository.DeleteByIdAsync(id);
-                   ServiceResponse<IEnumerable<GetBrandDto>> serviceResponse = new ServiceResponse<IEnumerable<GetBrandDto>>();
-                   serviceResponse.Data = _brandRepository.FilterBy(c => c.Name != "").AsQueryable().ProjectTo<GetBrandDto>(_mapper.ConfigurationProvider).AsEnumerable<GetBrandDto>();
-                   return serviceResponse;
-            }*/
+       public async Task<ServiceResponse<List<GetBrandDto>>> DeleteById(string id)
+       {
+           
+           var carsWithBrand = await _carRepository.FilterBy(c => c.Brand.ID == id);
+           if (carsWithBrand.Count == 0)
+           {
+               await _brandRepository.DeleteById(id); 
+               ServiceResponse<List<GetBrandDto>> serviceResponse = new ServiceResponse<List<GetBrandDto>>();
+               var brands = await _brandRepository.GetAll();
+               serviceResponse.Data = _brandMapper.MapToGetBrandDtoList(brands);
+               return serviceResponse;
+           } else {
+               throw new NotDeletableException();
+           }
+       }
     }
 }

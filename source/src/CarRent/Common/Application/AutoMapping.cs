@@ -17,6 +17,7 @@ namespace CarRent.Common.Application
             CreateMap<AddBrandDto, Brand>();
 
             CreateMap<GetCarDto, Car>();
+            CreateMap<UpdateCarDto, Car>();
             CreateMap<AddCarDto, Car>();
         }
     }

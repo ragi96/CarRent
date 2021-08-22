@@ -14,8 +14,8 @@ namespace CarRent.CarManagment.Application
 
         Task<ServiceResponse<GetCarDto>> FindOneById(string id);
 
-        Task<ServiceResponse<IEnumerable<GetCarDto>>> FindAll();
-        Task<ServiceResponse<GetCarDto>> Update(GetCarDto carDto);
-         /*   Task<ServiceResponse<IEnumerable<GetCarDto>>> DeleteById(string id);*/
+        Task<ServiceResponse<List<GetCarDto>>> FindAll();
+        Task<ServiceResponse<GetCarDto>> Update(UpdateCarDto carDto);
+        Task<ServiceResponse<List<GetCarDto>>> DeleteById(string id);
     }
 }

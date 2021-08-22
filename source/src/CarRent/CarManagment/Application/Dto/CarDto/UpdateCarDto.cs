@@ -2,11 +2,13 @@
 
 namespace CarRent.CarManagment.Application
 {
-    public class GetCarDto
+    public class UpdateCarDto
     {
+        [Required]
         public string Id { get; set; }
+        [Required]
         public string Name { get; set; }
-
-        public GetBrandDto BrandDto { get; set; }
+        [Required]
+        public string Brand { get; set;  }
     }
 }

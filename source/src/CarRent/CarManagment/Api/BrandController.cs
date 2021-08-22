@@ -15,7 +15,7 @@ namespace CarRent.CarManagment.Api
     {
         private readonly IBrandService _brandService;
 
-        public BrandController(IBrandService brandService)
+        public BrandController(IBrandService brandService, ICarService carService)
         {
             _brandService = brandService;
         }
@@ -54,14 +54,18 @@ namespace CarRent.CarManagment.Api
         return Ok(await _brandService.Update(brand));
        }
 
-          // DELETE api/<BrandController>/5
-          /*[HttpDelete("{id}")]
-          public async Task<IActionResult> Delete(string id)
+       // DELETE api/<BrandController>/5
+      [HttpDelete("{id}")]
+      public async Task<IActionResult> Delete(string id)
+      {
+          try
           {
-
               return Ok(await _brandService.DeleteById(id));
-
-
-          }*/
+          }
+          catch (NotDeletableException e)
+          {
+              return ValidationProblem($"Brand {id} " + e.Message);
+          }
+      }
     }
 }
