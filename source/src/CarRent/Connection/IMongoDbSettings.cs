@@ -9,6 +9,7 @@ namespace CarRent.Connection
     {
 
         string DatabaseName { get; set; }
-        string ConnectionString { get; set; }
+        string HostAddress { get; set; }
+        int Port { get; set; }
     }
 }

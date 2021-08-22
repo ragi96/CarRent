@@ -11,14 +11,16 @@ namespace CarRent.Common.Application
 {
     public class AutoMapping : Profile
     {
-        public AutoMapping() {
-            CreateMap<Car, GetCarDto>();
-            CreateMap<GetCarDto, Car>().ForMember(getCarDto => getCarDto.Id, car => car.MapFrom(s => new ObjectId(s.Id)));
-            CreateMap<AddCarDto, Car>();
-
+        public AutoMapping()
+        {
             CreateMap<Brand, GetBrandDto>();
-            CreateMap<GetBrandDto, Brand>().ForMember(getCarDto => getCarDto.Id, car => car.MapFrom(s => new ObjectId(s.Id)));
+            CreateMap<GetBrandDto, Brand>();
             CreateMap<AddBrandDto, Brand>();
+
+
+            CreateMap<Car, GetCarDto>();
+            CreateMap<GetCarDto, Car>();
+            CreateMap<AddCarDto, Car>();
         }
     }
 }

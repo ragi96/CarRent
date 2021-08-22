@@ -4,11 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarRent.Common;
 using CarRent.Common.Domain;
+using MongoDB.Entities;
 
 namespace CarRent.CarManagment.Domain
 {
-    [BsonCollection("brand")]
-    public class Brand : Document
+    [Collection("Brand")]
+    public class Brand : Entity
     {
         public string Name { get; set; }
     }

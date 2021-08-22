@@ -20,48 +20,48 @@ namespace CarRent.CarManagment.Api
             _brandService = brandService;
         }
         // GET: api/<BrandController>
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            return Ok(await _brandService.FindAll());
-        }
+       [HttpGet]
+       public async Task<IActionResult> Get()
+       {
+           return Ok(await _brandService.FindAll());
+       }
 
-        // GET api/<BrandController>/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetSingle(string id)
-        {
-            try
-            {
-                return Ok(await _brandService.FindOneById(id));
-            }
-            catch (NotFoundException e)
-            {
-                return NotFound($"Brand {id} " + e.Message);
-            }
-        }
+       // GET api/<BrandController>/5
+       [HttpGet("{id}")]
+       public async Task<IActionResult> GetSingle(string id)
+       {
+           try
+           {
+               return Ok(await _brandService.FindOneById(id));
+           }
+           catch (NotFoundException e)
+           {
+               return NotFound($"Brand {id} " + e.Message);
+           }
+       }
 
-        // POST api/<BrandController>
-        [HttpPost]
-        public void Post([FromBody] AddBrandDto brand)
-        {
-            _brandService.AddBrand(brand);
-        }
+       // POST api/<BrandController>
+       [HttpPost]
+       public void Post([FromBody] AddBrandDto brand)
+       {
+              _brandService.AddBrand(brand);
+       }
 
-        // PUT api/<BrandController>/5
-        [HttpPut]
-        public async Task<IActionResult> Put([FromBody] GetBrandDto brand)
-        {
-            return Ok(await _brandService.Update(brand));
-        }
+       // PUT api/<BrandController>/5
+       [HttpPut]
+       public async Task<IActionResult> Put([FromBody] GetBrandDto brand)
+       {
+        return Ok(await _brandService.Update(brand));
+       }
 
-        // DELETE api/<BrandController>/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
-        {
+          // DELETE api/<BrandController>/5
+          /*[HttpDelete("{id}")]
+          public async Task<IActionResult> Delete(string id)
+          {
 
-            return Ok(await _brandService.DeleteById(id));
+              return Ok(await _brandService.DeleteById(id));
 
 
-        }
+          }*/
     }
 }
