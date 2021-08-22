@@ -13,11 +13,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using CarRent.CarManagment.Application;
+using CarRent.CarManagment.Application.Mapper;
 using CarRent.CarManagment.Domain;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using CarRent.Connection;
 using Microsoft.Extensions.Options;
+using MongoDB.Entities;
 
 namespace CarRent
 {
@@ -33,14 +35,13 @@ namespace CarRent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
+            Task.Run(async () => {
+                    var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+                    await DB.InitAsync(settings.DatabaseName, settings.HostAddress, settings.Port);
+            }).GetAwaiter().GetResult();
 
-            services.AddSingleton<IMongoDbSettings>(serviceProvider =>
-                serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 
-            
             services.AddControllers();
-
 
             services.AddAutoMapper(c => c.AddProfile<AutoMapping>(), typeof(Startup));
 
@@ -49,10 +50,15 @@ namespace CarRent
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRent.API", Version = "v1" });
             });
+            services.AddScoped<IBrandServiceMapper, BrandServiceMapper>();
+            services.AddScoped<ICarServiceMapper, CarServiceMapper>();
+
 
             services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<IBrandService, BrandService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

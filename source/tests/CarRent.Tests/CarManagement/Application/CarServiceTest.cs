@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
 using CarRent.CarManagment.Application;
+using CarRent.CarManagment.Application.Mapper;
 using CarRent.CarManagment.Domain;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
@@ -12,14 +13,18 @@ namespace CarRent.Tests.CarManagement.Application
     public class CarServiceTest
     {
         private readonly ICarService _service;
+        private readonly ICarServiceMapper _ownMapper;
         private readonly IMongoRepository<Car> _repo;
+        private readonly IMongoRepository<Brand> _brandRepo;
         private readonly IMapper _mapper;
 
         public CarServiceTest()
         {
             _repo = A.Fake<IMongoRepository<Car>>();
+            _brandRepo = A.Fake<IMongoRepository<Brand>>();
             _mapper = A.Fake<IMapper>();
-            _service = new CarService(_repo, _mapper);
+            _ownMapper = A.Fake<ICarServiceMapper>();
+            _service = new CarService(_repo, _brandRepo, _ownMapper, _mapper);
         }
 
         [Fact]
@@ -49,7 +54,7 @@ namespace CarRent.Tests.CarManagement.Application
             var car = A.Fake<Car>();
 
             var answer = _service.AddCar(carDto);
-            A.CallTo(() => _repo.InsertOneAsync(car)).Returns(A.Fake<Task>());
+            A.CallTo(() => _repo.Save(car)).Returns(A.Fake<Task>());
 
             Assert.IsType<Task<ServiceResponse<GetCarDto>>>(answer);
         }
@@ -73,7 +78,7 @@ namespace CarRent.Tests.CarManagement.Application
             var id = "asd324a4sda0xsd34234";
 
             var car = _service.FindOneById(id);
-            A.CallTo(() => _repo.FindByIdAsync(id)).Returns(A.Fake<Task<Car>>());
+            A.CallTo(() => _repo.GetById(id)).Returns(A.Fake<Task<Car>>());
 
             Assert.IsType<Task<ServiceResponse<GetCarDto>>>(car);
         }
