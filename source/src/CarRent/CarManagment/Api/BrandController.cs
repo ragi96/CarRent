@@ -15,7 +15,7 @@ namespace CarRent.CarManagment.Api
     {
         private readonly IBrandService _brandService;
 
-        public BrandController(IBrandService brandService, ICarService carService)
+        public BrandController(IBrandService brandService)
         {
             _brandService = brandService;
         }
