@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using CarRent.CarManagment.Application;
+using CarRent.CarManagment.Application.Dto.CarClassDto;
 using CarRent.CarManagment.Domain;
 using MongoDB.Bson;
 
@@ -16,7 +17,10 @@ namespace CarRent.Common.Application
             CreateMap<GetBrandDto, Brand>();
             CreateMap<AddBrandDto, Brand>();
 
-            CreateMap<GetCarDto, Car>();
+            CreateMap<GetCarClassDto, CarClass>();
+            CreateMap<AddCarClassDto, CarClass>();
+
+            CreateMap<GetCarClassDto, Car>();
             CreateMap<UpdateCarDto, Car>();
             CreateMap<AddCarDto, Car>();
         }

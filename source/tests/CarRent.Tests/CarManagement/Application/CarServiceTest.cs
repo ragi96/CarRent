@@ -16,15 +16,17 @@ namespace CarRent.Tests.CarManagement.Application
         private readonly ICarServiceMapper _ownMapper;
         private readonly IMongoRepository<Car> _repo;
         private readonly IMongoRepository<Brand> _brandRepo;
+        private readonly IMongoRepository<CarClass> _carClassRepo;
         private readonly IMapper _mapper;
 
         public CarServiceTest()
         {
             _repo = A.Fake<IMongoRepository<Car>>();
             _brandRepo = A.Fake<IMongoRepository<Brand>>();
+            _carClassRepo = A.Fake<IMongoRepository<CarClass>>();
             _mapper = A.Fake<IMapper>();
             _ownMapper = A.Fake<ICarServiceMapper>();
-            _service = new CarService(_repo, _brandRepo, _ownMapper, _mapper);
+            _service = new CarService(_repo, _brandRepo, _carClassRepo, _ownMapper, _mapper);
         }
 
         [Fact]

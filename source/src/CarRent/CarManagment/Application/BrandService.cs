@@ -44,7 +44,7 @@ namespace CarRent.CarManagment.Application
 
         public async Task<ServiceResponse<GetBrandDto>> FindOneById(string id)
         {
-            ServiceResponse<GetBrandDto> serviceResponse = new ServiceResponse<GetBrandDto>(); 
+            var serviceResponse = new ServiceResponse<GetBrandDto>(); 
             var tBrand = await _brandRepository.GetById(id);
             serviceResponse.Data = _brandMapper.MapToGetBrandDto(tBrand);
             return serviceResponse;
@@ -52,7 +52,7 @@ namespace CarRent.CarManagment.Application
 
         public async Task<ServiceResponse<List<GetBrandDto>>> FindAll()
         {
-            ServiceResponse<List<GetBrandDto>> serviceResponse = new ServiceResponse<List<GetBrandDto>>();
+            var serviceResponse = new ServiceResponse<List<GetBrandDto>>();
             var brands = await _brandRepository.GetAll();
             serviceResponse.Data = _brandMapper.MapToGetBrandDtoList(brands);
             return serviceResponse;
@@ -60,7 +60,7 @@ namespace CarRent.CarManagment.Application
 
        public async Task<ServiceResponse<GetBrandDto>> Update(GetBrandDto brandDto)
        {
-            ServiceResponse<GetBrandDto> serviceResponse = new ServiceResponse<GetBrandDto>();
+            var serviceResponse = new ServiceResponse<GetBrandDto>();
             var brand = _mapper.Map<Brand>(brandDto);
             await _brandRepository.Save(brand);
             serviceResponse.Data = _brandMapper.MapToGetBrandDto(await _brandRepository.GetById(brand.ID));
@@ -69,12 +69,11 @@ namespace CarRent.CarManagment.Application
 
        public async Task<ServiceResponse<List<GetBrandDto>>> DeleteById(string id)
        {
-           
            var carsWithBrand = await _carRepository.FilterBy(c => c.Brand.ID == id);
            if (carsWithBrand.Count == 0)
            {
                await _brandRepository.DeleteById(id); 
-               ServiceResponse<List<GetBrandDto>> serviceResponse = new ServiceResponse<List<GetBrandDto>>();
+               var serviceResponse = new ServiceResponse<List<GetBrandDto>>();
                var brands = await _brandRepository.GetAll();
                serviceResponse.Data = _brandMapper.MapToGetBrandDtoList(brands);
                return serviceResponse;

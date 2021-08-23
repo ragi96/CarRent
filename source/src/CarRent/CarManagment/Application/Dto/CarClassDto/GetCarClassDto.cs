@@ -2,13 +2,10 @@
 
 namespace CarRent.CarManagment.Application
 {
-    public class GetCarDto
+    public class GetCarClassDto
     {
         public string Id { get; set; }
         public string Name { get; set; }
-
-        public GetBrandDto BrandDto { get; set; }
-
-        public GetCarClassDto CarClassDto { get; set; }
+        public int DailyPrice { get; set; }
     }
 }
