@@ -38,8 +38,8 @@ namespace CarRent
             Task.Run(async () => {
                     var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
                     await DB.InitAsync(settings.DatabaseName, settings.HostAddress, settings.Port);
+                    await DB.MigrateAsync();
             }).GetAwaiter().GetResult();
-
 
             services.AddControllers();
 
