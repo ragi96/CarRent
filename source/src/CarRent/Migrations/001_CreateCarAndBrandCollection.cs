@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarRent.CarManagment.Domain;
 using MongoDB.Driver;
+using MongoDB.Driver.Core.Authentication;
+using MongoDB.Driver.Core.Operations;
 using MongoDB.Entities;
 
 namespace CarRent.Migrations
 {
-    public class _001_CreateCarBrandCarClassCollection : IMigration
+    public class _001_CreateCarAndBrandCollection : IMigration
     {
         public async Task UpgradeAsync()
         {
@@ -17,4 +19,5 @@ namespace CarRent.Migrations
             await DB.CreateCollection(new CreateCollectionOptions<Car>());
         }
     }
+
 }
