@@ -7,11 +7,11 @@ namespace CarRent.CustomerManagement.Domain
     [Collection("Customer")]
     public class Customer : Entity
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Street { get; set; }
-        public string HouseNumber { get; set; }
-        public string Zip { get; set; }
-        public string City { get; set; }
+        public FuzzyString FirstName { get; set; }
+        public FuzzyString LastName { get; set; }
+        public FuzzyString Street { get; set; }
+        public FuzzyString HouseNumber { get; set; }
+        public FuzzyString Zip { get; set; }
+        public FuzzyString City { get; set; }
     }
 }

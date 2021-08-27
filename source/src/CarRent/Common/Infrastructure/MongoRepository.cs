@@ -14,16 +14,16 @@ namespace CarRent.Common.Infrastructure
             return toSave.SaveAsync();
         }
 
-        public Task<List<TDocument>> GetAll()
+        public async Task<List<TDocument>> GetAll()
         {
-            return DB.Find<TDocument>()
+            return await DB.Find<TDocument>()
                 .Match(_ => true)
                 .ExecuteAsync();
         }
 
-        public Task<TDocument> GetById(string id)
+        public async Task<TDocument> GetById(string id)
         {
-            return DB.Find<TDocument>()
+            return await DB.Find<TDocument>()
                 .Match(b => b.ID == id)
                 .ExecuteSingleAsync();
         }
@@ -33,9 +33,16 @@ namespace CarRent.Common.Infrastructure
             return DB.DeleteAsync<TDocument>(id);
         }
 
-        public Task<List<TDocument>> FilterBy(Expression<Func<TDocument, bool>> filterExpression)
+        public async Task<List<TDocument>> FilterBy(Expression<Func<TDocument, bool>> filterExpression)
         {
-            return DB.Find<TDocument>().ManyAsync(filterExpression);
+            return await DB.Find<TDocument>().ManyAsync(filterExpression);
+        }
+
+        public async Task<List<TDocument>> FuzzySearch(string searchTerm)
+        {
+            return await DB.Find<TDocument>()
+                .Match(Search.Fuzzy, searchTerm)
+                .ExecuteAsync();
         }
     }
 }

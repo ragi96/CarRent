@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using CarRent.Common.Application;
+using CarRent.Common.Application.Dto;
 using CarRent.Common.Infrastructure;
 using CarRent.CustomerManagement.Application.Dto;
 using CarRent.CustomerManagement.Application.Mapper;
@@ -61,6 +62,15 @@ namespace CarRent.CustomerManagement.Application
             await _customerRepository.DeleteById(id);
             var serviceResponse = new ServiceResponse<List<GetCustomerDto>>();
             var customers = await _customerRepository.GetAll();
+            serviceResponse.Data = _customerMapper.MapToGetDtoList(customers);
+            return serviceResponse;
+        }
+
+
+        public async Task<ServiceResponse<List<GetCustomerDto>>> Search(FuzzySearchTerm searchTerm)
+        {
+            var serviceResponse = new ServiceResponse<List<GetCustomerDto>>();
+            var customers = await _customerRepository.FuzzySearch(searchTerm.Term);
             serviceResponse.Data = _customerMapper.MapToGetDtoList(customers);
             return serviceResponse;
         }

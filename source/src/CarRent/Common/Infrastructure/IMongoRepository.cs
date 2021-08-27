@@ -13,5 +13,6 @@ namespace CarRent.Common.Infrastructure
         public Task<List<TDocument>> GetAll();
         public Task DeleteById(string id);
         public Task<List<TDocument>> FilterBy(Expression<Func<TDocument, bool>> filterExpression);
+        public Task<List<TDocument>> FuzzySearch(string searchTerm);
     }
 }
