@@ -4,6 +4,7 @@ using CarRent.Common.Application;
 using CarRent.CustomerManagement.Application.Dto;
 using CarRent.ReservationManagement.Api;
 using CarRent.ReservationManagement.Application;
+using CarRent.ReservationManagement.Application.Dto;
 using FakeItEasy;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
@@ -27,7 +28,7 @@ namespace CarRent.Tests.ReservationManagement.Api
             // Arrange
             var result = _controller.Get();
             // Assert
-            Assert.IsType<OkObjectResult>(result.Result);
+            Assert.IsType<ActionResult<ServiceResponse<List<GetReservationDto>>>>(result.Result);
         }
 
         [Fact]
@@ -41,7 +42,7 @@ namespace CarRent.Tests.ReservationManagement.Api
             A.CallTo(() => _service.FindAll()).Equals(task);
 
             // Assert
-            Assert.IsType<Task<IActionResult>>(result);
+            Assert.IsType<ActionResult<ServiceResponse<List<GetReservationDto>>>>(result.Result);
         }
     }
 }

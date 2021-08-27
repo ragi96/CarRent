@@ -38,7 +38,16 @@ namespace CarRent.CarManagement.Application
         {
             var serviceResponse = new ServiceResponse<GetBrandDto>();
             var tBrand = await _brandRepository.GetById(id);
-            serviceResponse.Data = _brandMapper.MapToGetBrandDto(tBrand);
+            if (tBrand != null)
+            {
+                serviceResponse.Data = _brandMapper.MapToGetBrandDto(tBrand);
+            }
+            else
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = "Can't be found";
+            }
+
             return serviceResponse;
         }
 
@@ -70,8 +79,13 @@ namespace CarRent.CarManagement.Application
                 serviceResponse.Data = _brandMapper.MapToGetBrandDtoList(brands);
                 return serviceResponse;
             }
-
-            throw new NotDeletableException();
+            else
+            {
+                var serviceResponse = new ServiceResponse<List<GetBrandDto>>();
+                serviceResponse.Success = false;
+                serviceResponse.Message = $"{id} not deletable";
+                return serviceResponse;
+            }
         }
     }
 }

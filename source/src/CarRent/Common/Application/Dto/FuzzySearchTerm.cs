@@ -6,7 +6,6 @@ namespace CarRent.Common.Application.Dto
     [ExcludeFromCodeCoverage]
     public class FuzzySearchTerm
     {
-        [Required]
-        public string Term { get; set; }
+        [Required] public string Term { get; set; }
     }
 }

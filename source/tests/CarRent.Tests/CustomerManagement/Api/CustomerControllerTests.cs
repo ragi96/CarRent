@@ -27,7 +27,7 @@ namespace CarRent.Tests.CustomerManagement.Api
             // Arrange
             var result = _controller.Get();
             // Assert
-            Assert.IsType<OkObjectResult>(result.Result);
+            Assert.IsType<ActionResult<ServiceResponse<List<GetCustomerDto>>>>(result.Result);
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace CarRent.Tests.CustomerManagement.Api
             A.CallTo(() => _service.FindAll()).Equals(task);
 
             // Assert
-            Assert.IsType<Task<IActionResult>>(result);
+            Assert.IsType<ActionResult<ServiceResponse<List<GetCustomerDto>>>>(result.Result);
         }
     }
 }

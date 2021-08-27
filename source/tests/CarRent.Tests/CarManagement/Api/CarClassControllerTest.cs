@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using CarRent.CarManagement.Api;
 using CarRent.CarManagement.Application;
 using CarRent.CarManagement.Application.Dto.BrandDto;
+using CarRent.CarManagement.Application.Dto.CarClassDto;
 using CarRent.Common.Application;
 using FakeItEasy;
 using Microsoft.AspNetCore.Mvc;
@@ -27,21 +28,21 @@ namespace CarRent.Tests.CarManagement.Api
             // Arrange
             var result = _controller.Get();
             // Assert
-            Assert.IsType<OkObjectResult>(result.Result);
+            Assert.IsType<ActionResult<ServiceResponse<List<GetCarClassDto>>>>(result.Result);
         }
 
         [Fact]
         public void Get_WhenCalled_ReturnsTaskIActionResult()
         {
             // Arrange
-            var task = A.Fake<Task<ServiceResponse<IEnumerable<GetBrandDto>>>>();
+            var task = A.Fake<Task<ServiceResponse<List<GetBrandDto>>>>();
             // Act
             var result = _controller.Get();
             A.CallTo(() => _service.FindAll()).MustHaveHappened();
             A.CallTo(() => _service.FindAll()).Equals(task);
 
             // Assert
-            Assert.IsType<Task<IActionResult>>(result);
+            Assert.IsType<ActionResult<ServiceResponse<List<GetCarClassDto>>>>(result.Result);
         }
     }
 }

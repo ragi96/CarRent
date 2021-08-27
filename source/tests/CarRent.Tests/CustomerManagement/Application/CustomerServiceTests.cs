@@ -59,19 +59,6 @@ namespace CarRent.Tests.CustomerManagement.Application
         }
 
         [Fact]
-        public void FindOneById_MapperDtoToDomainModel_ReturnsGetCarDto()
-        {
-            var dto = A.Fake<GetCustomerDto>();
-            var customer = A.Fake<Customer>();
-            var id = "asd324a4sda0xsd34234";
-
-            var found = _service.FindOneById(id).Result;
-            A.CallTo(() => _mapper.Map<GetCustomerDto>(customer)).Returns(dto);
-
-            Assert.IsType<ServiceResponse<GetCustomerDto>>(found);
-        }
-
-        [Fact]
         public void FindOneById_RepoFindIdAsync_ReturnsTaskCar()
         {
             var id = "asd324a4sda0xsd34234";

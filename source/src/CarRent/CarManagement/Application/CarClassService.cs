@@ -36,8 +36,17 @@ namespace CarRent.CarManagement.Application
         public async Task<ServiceResponse<GetCarClassDto>> FindOneById(string id)
         {
             var serviceResponse = new ServiceResponse<GetCarClassDto>();
-            var tCar = await _carClassRepository.GetById(id);
-            serviceResponse.Data = _carClassMapper.MapToGetCarClassDto(tCar);
+            var carClass = await _carClassRepository.GetById(id);
+            if (carClass != null)
+            {
+                serviceResponse.Data = _carClassMapper.MapToGetCarClassDto(carClass);
+            }
+            else
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = "Can't be found";
+            }
+
             return serviceResponse;
         }
 
@@ -61,16 +70,20 @@ namespace CarRent.CarManagement.Application
         public async Task<ServiceResponse<List<GetCarClassDto>>> DeleteById(string id)
         {
             var carsWithBrand = await _carRepository.FilterBy(c => c.CarClass.ID == id);
+            var serviceResponse = new ServiceResponse<List<GetCarClassDto>>();
             if (carsWithBrand.Count == 0)
             {
                 await _carClassRepository.DeleteById(id);
-                var serviceResponse = new ServiceResponse<List<GetCarClassDto>>();
                 var cars = await _carClassRepository.GetAll();
                 serviceResponse.Data = _carClassMapper.MapToGetCarClassDtoList(cars);
-                return serviceResponse;
+            }
+            else
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = "Can't be deleted";
             }
 
-            throw new NotDeletableException();
+            return serviceResponse;
         }
     }
 }

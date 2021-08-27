@@ -1,8 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using CarRent.CarManagement.Application.Dto.CarClassDto;
 using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.CustomerManagement.Application.Dto;
-using MongoDB.Entities;
 
 namespace CarRent.ReservationManagement.Application.Dto
 {
@@ -13,7 +13,7 @@ namespace CarRent.ReservationManagement.Application.Dto
         public GetCustomerDto Customer { get; set; }
         public GetCarDto WishCar { get; set; }
         public GetCarClassDto CarClass { get; set; }
-        public Date StartDate { get; set; }
-        public Date EndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

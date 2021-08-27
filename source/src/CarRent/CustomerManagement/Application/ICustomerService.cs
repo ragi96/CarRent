@@ -14,7 +14,6 @@ namespace CarRent.CustomerManagement.Application
 
         Task<ServiceResponse<List<GetCustomerDto>>> FindAll();
         Task<ServiceResponse<GetCustomerDto>> Update(GetCustomerDto customerDto);
-        Task<ServiceResponse<List<GetCustomerDto>>> DeleteById(string id);
         Task<ServiceResponse<List<GetCustomerDto>>> Search(FuzzySearchTerm searchTerm);
     }
 }

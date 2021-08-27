@@ -1,8 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using CarRent.CarManagement.Application;
 using CarRent.CarManagement.Application.Dto.BrandDto;
+using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace CarRent.CarManagement.Api
 {
@@ -19,14 +22,14 @@ namespace CarRent.CarManagement.Api
 
         // GET: api/<BrandController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<ActionResult<ServiceResponse<List<GetBrandDto>>>> Get()
         {
             return Ok(await _brandService.FindAll());
         }
 
         // GET api/<BrandController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetSingle(string id)
+        public async Task<ActionResult<GetBrandDto>> GetSingle([SwaggerRequestBody(Required = true)] string id)
         {
             try
             {
@@ -40,30 +43,26 @@ namespace CarRent.CarManagement.Api
 
         // POST api/<BrandController>
         [HttpPost]
-        public void Post([FromBody] AddBrandDto brand)
+        public void Post([FromBody] [SwaggerRequestBody(Required = true)]
+            AddBrandDto brand)
         {
             _brandService.AddBrand(brand);
         }
 
         // PUT api/<BrandController>/5
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] GetBrandDto brand)
+        public async Task<ActionResult<GetBrandDto>> Put([FromBody] [SwaggerRequestBody(Required = true)]
+            GetBrandDto brand)
         {
             return Ok(await _brandService.Update(brand));
         }
 
         // DELETE api/<BrandController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<ActionResult<ServiceResponse<List<GetBrandDto>>>> Delete(
+            [SwaggerRequestBody(Required = true)] string id)
         {
-            try
-            {
-                return Ok(await _brandService.DeleteById(id));
-            }
-            catch (NotDeletableException e)
-            {
-                return ValidationProblem($"Brand {id} " + e.Message);
-            }
+            return Ok(await _brandService.DeleteById(id));
         }
     }
 }

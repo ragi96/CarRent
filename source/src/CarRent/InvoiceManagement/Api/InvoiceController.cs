@@ -1,8 +1,10 @@
-﻿using System.Threading.Tasks;
-using CarRent.Common.Infrastructure;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using CarRent.Common.Application;
 using CarRent.InvoiceManagement.Application;
 using CarRent.InvoiceManagement.Application.Dto;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,38 +23,27 @@ namespace CarRent.InvoiceManagement.Api
 
         // GET: api/<InvoiceController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<ActionResult<ServiceResponse<List<GetInvoiceDto>>>> Get()
         {
             return Ok(await _invoiceService.FindAll());
         }
 
         // GET api/<InvoiceController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetSingle(string id)
+        public async Task<ActionResult<ServiceResponse<GetInvoiceDto>>> GetSingle(
+            [SwaggerRequestBody(Required = true)] string id)
         {
-            try
-            {
-                return Ok(await _invoiceService.FindOneById(id));
-            }
-            catch (NotFoundException e)
-            {
-                return NotFound($"Invoice {id} " + e.Message);
-            }
+            return Ok(await _invoiceService.FindOneById(id));
         }
 
         // POST api/<InvoiceController>/5/create-invoice
         [Route("{reservationId}/create-invoice")]
         [HttpPost]
-        public async Task<IActionResult> Post(string reservationId, [FromBody] AddInvoiceDto dto)
+        public async Task<ActionResult<ServiceResponse<GetInvoiceDto>>> Post(
+            [SwaggerRequestBody(Required = true)] string reservationId, [FromBody] [SwaggerRequestBody(Required = true)]
+            AddInvoiceDto dto)
         {
-            try
-            {
-                return Ok(await _invoiceService.Create(reservationId, dto));
-            }
-            catch (NotFoundException)
-            {
-                return NotFound($"Invoice creation failed, ReservationId: {reservationId} or CarId: {dto.CarId} wrong");
-            }
+            return Ok(await _invoiceService.Create(reservationId, dto));
         }
     }
 }

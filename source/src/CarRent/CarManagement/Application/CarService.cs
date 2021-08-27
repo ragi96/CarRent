@@ -44,7 +44,16 @@ namespace CarRent.CarManagement.Application
         {
             var serviceResponse = new ServiceResponse<GetCarDto>();
             var tCar = await _carRepository.GetById(id);
-            serviceResponse.Data = _carMapper.MapToGetCarDto(tCar);
+            if (tCar != null)
+            {
+                serviceResponse.Data = _carMapper.MapToGetCarDto(tCar);
+            }
+            else
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = "Can't be found";
+            }
+
             return serviceResponse;
         }
 

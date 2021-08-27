@@ -57,15 +57,6 @@ namespace CarRent.CustomerManagement.Application
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetCustomerDto>>> DeleteById(string id)
-        {
-            await _customerRepository.DeleteById(id);
-            var serviceResponse = new ServiceResponse<List<GetCustomerDto>>();
-            var customers = await _customerRepository.GetAll();
-            serviceResponse.Data = _customerMapper.MapToGetDtoList(customers);
-            return serviceResponse;
-        }
-
 
         public async Task<ServiceResponse<List<GetCustomerDto>>> Search(FuzzySearchTerm searchTerm)
         {

@@ -29,22 +29,29 @@ namespace CarRent.InvoiceManagement.Application
 
         public async Task<ServiceResponse<GetInvoiceDto>> Create(string reservationId, AddInvoiceDto invoiceDto)
         {
-            var reservation = _reservationRepository.GetById(reservationId).Result;
-            var car = _carRepository.GetById(invoiceDto.CarId).Result;
-            var customer = reservation.Customer.ToEntityAsync().Result;
-
-            var invoice = new Invoice
-            {
-                CarClass = reservation.CarClass,
-                Car = car,
-                Customer = customer,
-                StartDate = reservation.StartDate,
-                EndDate = reservation.EndDate
-            };
-
             var serviceResponse = new ServiceResponse<GetInvoiceDto>();
-            await _invoiceRepository.Save(invoice);
-            await _reservationRepository.DeleteById(reservationId);
+            try
+            {
+                var reservation = _reservationRepository.GetById(reservationId).Result;
+                var car = _carRepository.GetById(invoiceDto.CarId).Result;
+                var customer = reservation.Customer.ToEntityAsync().Result;
+                var invoice = new Invoice
+                {
+                    CarClass = reservation.CarClass,
+                    Car = car,
+                    Customer = customer,
+                    StartDate = reservation.StartDate,
+                    EndDate = reservation.EndDate
+                };
+                await _invoiceRepository.Save(invoice);
+                await _reservationRepository.DeleteById(reservationId);
+            }
+            catch (NotFoundException e)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = e.Message;
+            }
+
             return serviceResponse;
         }
 
@@ -52,7 +59,16 @@ namespace CarRent.InvoiceManagement.Application
         {
             var serviceResponse = new ServiceResponse<GetInvoiceDto>();
             var invoice = await _invoiceRepository.GetById(id);
-            serviceResponse.Data = _invoiceMapper.MapToGetDto(invoice);
+            if (invoice != null)
+            {
+                serviceResponse.Data = _invoiceMapper.MapToGetDto(invoice);
+            }
+            else
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = "Not found";
+            }
+
             return serviceResponse;
         }
 
