@@ -1,5 +1,8 @@
-﻿namespace CarRent.CarManagement.Application.Dto.CarClassDto
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace CarRent.CarManagement.Application.Dto.CarClassDto
 {
+    [ExcludeFromCodeCoverage]
     public class GetCarClassDto
     {
         public string Id { get; set; }

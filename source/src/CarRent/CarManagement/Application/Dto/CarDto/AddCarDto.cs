@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CarRent.CarManagement.Application.Dto.CarDto
 {
+    [ExcludeFromCodeCoverage]
     public class AddCarDto
     {
         [Required] public string Name { get; set; }

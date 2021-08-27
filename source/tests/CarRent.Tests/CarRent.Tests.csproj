@@ -27,4 +27,10 @@
     <ProjectReference Include="..\..\src\CarRent\CarRent.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="code-coverage.runsettings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+
 </Project>

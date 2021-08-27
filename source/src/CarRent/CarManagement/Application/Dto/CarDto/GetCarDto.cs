@@ -1,8 +1,10 @@
-﻿using CarRent.CarManagement.Application.Dto.BrandDto;
+﻿using System.Diagnostics.CodeAnalysis;
+using CarRent.CarManagement.Application.Dto.BrandDto;
 using CarRent.CarManagement.Application.Dto.CarClassDto;
 
 namespace CarRent.CarManagement.Application.Dto.CarDto
 {
+    [ExcludeFromCodeCoverage]
     public class GetCarDto
     {
         public string Id { get; set; }
