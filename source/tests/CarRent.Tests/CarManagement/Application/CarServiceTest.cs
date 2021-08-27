@@ -16,7 +16,7 @@ namespace CarRent.Tests.CarManagement.Application
         private readonly IMongoRepository<Brand> _brandRepo;
         private readonly IMongoRepository<CarClass> _carClassRepo;
         private readonly IMapper _mapper;
-        private readonly ICarServiceMapper _ownMapper;
+        private readonly ICarMapper _ownMapper;
         private readonly IMongoRepository<Car> _repo;
         private readonly ICarService _service;
 
@@ -26,7 +26,7 @@ namespace CarRent.Tests.CarManagement.Application
             _brandRepo = A.Fake<IMongoRepository<Brand>>();
             _carClassRepo = A.Fake<IMongoRepository<CarClass>>();
             _mapper = A.Fake<IMapper>();
-            _ownMapper = A.Fake<ICarServiceMapper>();
+            _ownMapper = A.Fake<ICarMapper>();
             _service = new CarService(_repo, _brandRepo, _carClassRepo, _ownMapper, _mapper);
         }
 

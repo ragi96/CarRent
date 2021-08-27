@@ -50,9 +50,9 @@ namespace CarRent
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "CarRent.API", Version = "v1"});
             });
-            services.AddScoped<IBrandServiceMapper, BrandServiceMapper>();
-            services.AddScoped<ICarServiceMapper, CarServiceMapper>();
-            services.AddScoped<ICarClassServiceMapper, CarClassServiceMapper>();
+            services.AddScoped<IBrandMapper, BrandMapper>();
+            services.AddScoped<ICarMapper, CarMapper>();
+            services.AddScoped<ICarClassMapper, CarClassMapper>();
             services.AddScoped<ICustomerMapper, CustomerMapper>();
             services.AddScoped<IReservationMapper, ReservationMapper>();
             services.AddScoped<IInvoiceMapper, InvoiceMapper>();

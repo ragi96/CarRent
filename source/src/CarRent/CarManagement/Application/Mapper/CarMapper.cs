@@ -6,15 +6,15 @@ using CarRent.CarManagement.Domain;
 namespace CarRent.CarManagement.Application.Mapper
 {
     [ExcludeFromCodeCoverage]
-    public class CarServiceMapper : ICarServiceMapper
+    public class CarMapper : ICarMapper
     {
-        private readonly BrandServiceMapper _brandServiceMapper;
-        private readonly CarClassServiceMapper _carClassServiceMapper;
+        private readonly BrandMapper _brandServiceMapper;
+        private readonly CarClassMapper _carClassServiceMapper;
 
-        public CarServiceMapper()
+        public CarMapper()
         {
-            _brandServiceMapper = new BrandServiceMapper();
-            _carClassServiceMapper = new CarClassServiceMapper();
+            _brandServiceMapper = new BrandMapper();
+            _carClassServiceMapper = new CarClassMapper();
         }
 
         public GetCarDto MapToGetCarDto(Car car)

@@ -9,15 +9,15 @@ namespace CarRent.InvoiceManagement.Application.Mapper
 {
     public class InvoiceMapper : IInvoiceMapper
     {
-        private readonly CarServiceMapper _carMapper;
-        private readonly CarClassServiceMapper _carClassMapper;
+        private readonly CarMapper _carMapper;
+        private readonly CarClassMapper _carClassMapper;
         private readonly CustomerMapper _customerMapper;
 
         public InvoiceMapper()
         {
             _customerMapper = new CustomerMapper();
-            _carClassMapper = new CarClassServiceMapper();
-            _carMapper = new CarServiceMapper();
+            _carClassMapper = new CarClassMapper();
+            _carMapper = new CarMapper();
         }
 
         public GetInvoiceDto MapToGetDto(Invoice invoice)

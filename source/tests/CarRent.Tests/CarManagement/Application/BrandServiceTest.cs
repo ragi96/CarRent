@@ -15,14 +15,14 @@ namespace CarRent.Tests.CarManagement.Application
     {
         private readonly IMongoRepository<Car> _carRepo;
         private readonly IMapper _mapper;
-        private readonly IBrandServiceMapper _ownMapper;
+        private readonly IBrandMapper _ownMapper;
         private readonly IMongoRepository<Brand> _repo;
         private readonly IBrandService _service;
 
         public BrandServiceTest()
         {
             _repo = A.Fake<IMongoRepository<Brand>>();
-            _ownMapper = A.Fake<BrandServiceMapper>();
+            _ownMapper = A.Fake<BrandMapper>();
             _carRepo = A.Fake<IMongoRepository<Car>>();
             _mapper = A.Fake<IMapper>();
             _service = new BrandService(_repo, _ownMapper, _carRepo, _mapper);

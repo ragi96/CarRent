@@ -8,11 +8,11 @@ namespace CarRent.Tests.CarManagement.Application.Mapper
 {
     public class CarClassServiceMapperTest
     {
-        private readonly CarClassServiceMapper _mapper;
+        private readonly CarClassMapper _mapper;
 
         public CarClassServiceMapperTest()
         {
-            _mapper = new CarClassServiceMapper();
+            _mapper = new CarClassMapper();
         }
 
         [Fact]

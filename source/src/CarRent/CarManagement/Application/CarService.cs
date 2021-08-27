@@ -14,12 +14,12 @@ namespace CarRent.CarManagement.Application
         private readonly IMongoRepository<Brand> _brandRepository;
         private readonly IMongoRepository<CarClass> _carClassRepository;
 
-        private readonly ICarServiceMapper _carMapper;
+        private readonly ICarMapper _carMapper;
         private readonly IMongoRepository<Car> _carRepository;
         private readonly IMapper _mapper;
 
         public CarService(IMongoRepository<Car> carRepository, IMongoRepository<Brand> brandRepository,
-            IMongoRepository<CarClass> carClassRepository, ICarServiceMapper carMapper, IMapper mapper)
+            IMongoRepository<CarClass> carClassRepository, ICarMapper carMapper, IMapper mapper)
         {
             _carRepository = carRepository;
             _brandRepository = brandRepository;

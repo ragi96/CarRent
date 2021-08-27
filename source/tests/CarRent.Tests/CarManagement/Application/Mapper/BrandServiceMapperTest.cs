@@ -8,11 +8,11 @@ namespace CarRent.Tests.CarManagement.Application.Mapper
 {
     public class BrandServiceMapperTest
     {
-        private readonly BrandServiceMapper _mapper;
+        private readonly BrandMapper _mapper;
 
         public BrandServiceMapperTest()
         {
-            _mapper = new BrandServiceMapper();
+            _mapper = new BrandMapper();
         }
 
         [Fact]

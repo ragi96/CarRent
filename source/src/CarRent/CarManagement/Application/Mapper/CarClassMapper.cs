@@ -4,7 +4,7 @@ using CarRent.CarManagement.Domain;
 
 namespace CarRent.CarManagement.Application.Mapper
 {
-    public class CarClassServiceMapper : ICarClassServiceMapper
+    public class CarClassMapper : ICarClassMapper
     {
         public GetCarClassDto MapToGetCarClassDto(CarClass carClass)
         {

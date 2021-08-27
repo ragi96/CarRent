@@ -4,7 +4,7 @@ using CarRent.CarManagement.Domain;
 
 namespace CarRent.CarManagement.Application.Mapper
 {
-    public interface ICarServiceMapper
+    public interface ICarMapper
     {
         GetCarDto MapToGetCarDto(Car car);
 

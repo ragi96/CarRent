@@ -4,7 +4,7 @@ using CarRent.CarManagement.Domain;
 
 namespace CarRent.CarManagement.Application.Mapper
 {
-    public class BrandServiceMapper : IBrandServiceMapper
+    public class BrandMapper : IBrandMapper
     {
         public GetBrandDto MapToGetBrandDto(Brand brand)
         {

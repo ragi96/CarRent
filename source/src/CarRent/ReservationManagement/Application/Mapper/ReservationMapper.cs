@@ -8,16 +8,16 @@ namespace CarRent.ReservationManagement.Application.Mapper
 {
     public class ReservationMapper : IReservationMapper
     {
-        private readonly CarClassServiceMapper _carClassMapper;
-        private readonly CarServiceMapper _carMapper;
+        private readonly CarClassMapper _carClassMapper;
+        private readonly CarMapper _carMapper;
 
         private readonly CustomerMapper _customerMapper;
 
         public ReservationMapper()
         {
             _customerMapper = new CustomerMapper();
-            _carClassMapper = new CarClassServiceMapper();
-            _carMapper = new CarServiceMapper();
+            _carClassMapper = new CarClassMapper();
+            _carMapper = new CarMapper();
         }
 
         public GetReservationDto MapToGetDto(Reservation reservation)
