@@ -1,26 +1,18 @@
-﻿using System.Threading.Tasks;
-using AutoMapper;
-using CarRent.CarManagement.Domain;
-using CarRent.Common.Application;
+﻿using CarRent.CarManagement.Domain;
 using CarRent.Common.Infrastructure;
 using CarRent.InvoiceManagement.Application;
-using CarRent.InvoiceManagement.Application.Dto;
 using CarRent.InvoiceManagement.Application.Mapper;
 using CarRent.InvoiceManagement.Domain;
-using CarRent.ReservationManagement.Application;
-using CarRent.ReservationManagement.Application.Dto;
-using CarRent.ReservationManagement.Application.Mapper;
 using CarRent.ReservationManagement.Domain;
 using FakeItEasy;
-using Xunit;
 
 namespace CarRent.Tests.InvoiceManagement.Application
 {
     public class InvoiceServiceTests
     {
+        private readonly IMongoRepository<Car> _carRepo;
         private readonly IInvoiceMapper _ownMapper;
         private readonly IMongoRepository<Invoice> _repo;
-        private readonly IMongoRepository<Car> _carRepo;
         private readonly IMongoRepository<Reservation> _reservationRepo;
         private readonly IInvoiceService _service;
 

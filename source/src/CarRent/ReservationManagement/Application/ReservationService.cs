@@ -53,7 +53,8 @@ namespace CarRent.ReservationManagement.Application
             var serviceResponse = new ServiceResponse<GetReservationDto>();
             var reservations = _mapper.Map<Reservation>(customerDto);
             await _reservationRepository.Save(reservations);
-            serviceResponse.Data = _reservationMapper.MapToGetDto(await _reservationRepository.GetById(reservations.ID));
+            serviceResponse.Data =
+                _reservationMapper.MapToGetDto(await _reservationRepository.GetById(reservations.ID));
             return serviceResponse;
         }
 

@@ -54,7 +54,8 @@ namespace CarRent.ReservationManagement.Api
 
         // PUT api/<CarController>/5
         [HttpPut]
-        public async Task<ActionResult<ServiceResponse<GetReservationDto>>> Put([FromBody] [SwaggerRequestBody(Required = true)]
+        public async Task<ActionResult<ServiceResponse<GetReservationDto>>> Put(
+            [FromBody] [SwaggerRequestBody(Required = true)]
             GetReservationDto customer)
         {
             return Ok(await _reservationService.Update(customer));
@@ -62,7 +63,8 @@ namespace CarRent.ReservationManagement.Api
 
         // DELETE api/<CarController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ServiceResponse<List<GetReservationDto>>>> Delete([SwaggerRequestBody(Required = true)] string id)
+        public async Task<ActionResult<ServiceResponse<List<GetReservationDto>>>> Delete(
+            [SwaggerRequestBody(Required = true)] string id)
         {
             return Ok(await _reservationService.DeleteById(id));
         }
