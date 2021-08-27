@@ -6,6 +6,8 @@ using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.CarManagement.Domain;
 using CarRent.CustomerManagement.Application.Dto;
 using CarRent.CustomerManagement.Domain;
+using CarRent.ReservationManagement.Application.Dto;
+using CarRent.ReservationManagement.Domain;
 
 namespace CarRent.Common.Application
 {
@@ -26,6 +28,9 @@ namespace CarRent.Common.Application
 
             CreateMap<GetCustomerDto, Customer>();
             CreateMap<AddCustomerDto, Customer>();
+
+            CreateMap<GetReservationDto, Reservation>();
+            CreateMap<AddReservationDto, Reservation>();
         }
     }
 }

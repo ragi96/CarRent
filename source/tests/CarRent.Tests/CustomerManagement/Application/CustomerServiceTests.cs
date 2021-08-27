@@ -65,10 +65,10 @@ namespace CarRent.Tests.CustomerManagement.Application
             var customer = A.Fake<Customer>();
             var id = "asd324a4sda0xsd34234";
 
-            var foundCar = _service.FindOneById(id).Result;
+            var found = _service.FindOneById(id).Result;
             A.CallTo(() => _mapper.Map<GetCustomerDto>(customer)).Returns(dto);
 
-            Assert.IsType<ServiceResponse<GetCustomerDto>>(foundCar);
+            Assert.IsType<ServiceResponse<GetCustomerDto>>(found);
         }
 
         [Fact]
@@ -76,10 +76,10 @@ namespace CarRent.Tests.CustomerManagement.Application
         {
             var id = "asd324a4sda0xsd34234";
 
-            var brand = _service.FindOneById(id);
+            var found = _service.FindOneById(id);
             A.CallTo(() => _repo.GetById(id)).Returns(A.Fake<Task<Customer>>());
 
-            Assert.IsType<Task<ServiceResponse<GetCustomerDto>>>(brand);
+            Assert.IsType<Task<ServiceResponse<GetCustomerDto>>>(found);
         }
     }
 }

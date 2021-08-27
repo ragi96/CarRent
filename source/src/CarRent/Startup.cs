@@ -7,6 +7,8 @@ using CarRent.Common.Infrastructure;
 using CarRent.Connection;
 using CarRent.CustomerManagement.Application;
 using CarRent.CustomerManagement.Application.Mapper;
+using CarRent.ReservationManagement.Application;
+using CarRent.ReservationManagement.Application.Mapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -50,6 +52,7 @@ namespace CarRent
             services.AddScoped<ICarServiceMapper, CarServiceMapper>();
             services.AddScoped<ICarClassServiceMapper, CarClassServiceMapper>();
             services.AddScoped<ICustomerMapper, CustomerMapper>();
+            services.AddScoped<IReservationMapper, ReservationMapper>();
 
 
             services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
@@ -57,6 +60,7 @@ namespace CarRent
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<ICarClassService, CarClassService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IReservationService, ReservationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
