@@ -27,7 +27,7 @@ jobs:
         # Optional command arguments to dotnet build
         dotnetBuildArguments: ./source
         # Optional command arguments to dotnet test
-        dotnetTestArguments: ./source --logger trx --collect:"XPlat Code Coverage" --settings code-coverage.runsettings -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        dotnetTestArguments: ./source --logger trx --collect:"XPlat Code Coverage" --settings ./source/code-coverage.runsettings -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
         # Optional extra command arguments the the SonarScanner 'begin' command
         sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"
       env:
