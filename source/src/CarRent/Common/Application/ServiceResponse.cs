@@ -1,5 +1,8 @@
-﻿namespace CarRent.Common.Application
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace CarRent.Common.Application
 {
+    [ExcludeFromCodeCoverage]
     public class ServiceResponse<T>
     {
         public T Data { get; set; }

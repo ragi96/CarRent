@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Diagnostics.CodeAnalysis;
+using AutoMapper;
 using CarRent.CarManagement.Application.Dto.BrandDto;
 using CarRent.CarManagement.Application.Dto.CarClassDto;
 using CarRent.CarManagement.Application.Dto.CarDto;
@@ -8,6 +9,7 @@ namespace CarRent.Common.Application
 {
     public class AutoMapping : Profile
     {
+        [ExcludeFromCodeCoverage]
         public AutoMapping()
         {
             CreateMap<GetBrandDto, Brand>();
