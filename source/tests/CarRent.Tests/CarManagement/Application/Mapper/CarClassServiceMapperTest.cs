@@ -8,10 +8,10 @@ using Xunit;
 
 namespace CarRent.Tests.CarManagement.Application.Mapper
 {
-    public class CarClasseMapperTest
+    public class CarClassServiceMapperTest
     {
-        private CarClassServiceMapper _mapper;
-        public CarClasseMapperTest()
+        private readonly CarClassServiceMapper _mapper;
+        public CarClassServiceMapperTest()
         {
             _mapper = new CarClassServiceMapper();
         }

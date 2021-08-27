@@ -4,6 +4,8 @@ using CarRent.CarManagement.Application.Dto.BrandDto;
 using CarRent.CarManagement.Application.Dto.CarClassDto;
 using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.CarManagement.Domain;
+using CarRent.CustomerManagement.Application.Dto.CarDto;
+using CarRent.CustomerManagement.Domain;
 
 namespace CarRent.Common.Application
 {
@@ -21,6 +23,9 @@ namespace CarRent.Common.Application
             CreateMap<GetCarClassDto, Car>();
             CreateMap<UpdateCarDto, Car>();
             CreateMap<AddCarDto, Car>();
+
+            CreateMap<GetCustomerDto, Customer>();
+            CreateMap<AddCustomerDto, Customer>();
         }
     }
 }

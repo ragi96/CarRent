@@ -18,6 +18,8 @@ using CarRent.CarManagement.Application.Mapper;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using CarRent.Connection;
+using CarRent.CustomerManagement.Application;
+using CarRent.CustomerManagement.Application.Mapper;
 using Microsoft.Extensions.Options;
 using MongoDB.Entities;
 
@@ -54,12 +56,14 @@ namespace CarRent
             services.AddScoped<IBrandServiceMapper, BrandServiceMapper>();
             services.AddScoped<ICarServiceMapper, CarServiceMapper>();
             services.AddScoped<ICarClassServiceMapper, CarClassServiceMapper>();
+            services.AddScoped<ICustomerMapper, CustomerMapper>();
 
 
             services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<ICarClassService, CarClassService>();
+            services.AddScoped<ICustomerService, CustomerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
