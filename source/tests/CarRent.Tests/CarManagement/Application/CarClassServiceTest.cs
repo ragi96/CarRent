@@ -13,11 +13,11 @@ namespace CarRent.Tests.CarManagement.Application
 {
     public class CarClassSericeTest
     {
-        private readonly ICarClassService _service;
-        private readonly IMongoRepository<CarClass> _repo;
         private readonly IMongoRepository<Car> _carRepo;
-        private readonly ICarClassServiceMapper _ownMapper;
         private readonly IMapper _mapper;
+        private readonly ICarClassServiceMapper _ownMapper;
+        private readonly IMongoRepository<CarClass> _repo;
+        private readonly ICarClassService _service;
 
         public CarClassSericeTest()
         {
@@ -33,7 +33,7 @@ namespace CarRent.Tests.CarManagement.Application
         {
             var addCarClassDto = A.Fake<AddCarClassDto>();
 
-            var answer =_service.AddCarClass(addCarClassDto);
+            var answer = _service.AddCarClass(addCarClassDto);
             A.CallTo(() => _mapper.Map<CarClass>(addCarClassDto)).MustHaveHappened();
             Assert.IsType<Task<ServiceResponse<GetCarClassDto>>>(answer);
         }

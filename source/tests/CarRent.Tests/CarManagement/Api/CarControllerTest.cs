@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CarRent.CarManagement.Api;
 using CarRent.CarManagement.Application;
@@ -15,6 +14,7 @@ namespace CarRent.Tests.CarManagement.Api
     {
         private readonly CarController _controller;
         private readonly ICarService _service;
+
         public CarControllerTests()
         {
             _service = A.Fake<ICarService>();
@@ -42,7 +42,6 @@ namespace CarRent.Tests.CarManagement.Api
 
             // Assert
             Assert.IsType<Task<IActionResult>>(result);
-
         }
     }
 }

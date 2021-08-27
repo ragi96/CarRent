@@ -13,11 +13,11 @@ namespace CarRent.Tests.CarManagement.Application
 {
     public class BrandServiceTest
     {
-        private readonly IBrandService _service;
-        private readonly IMongoRepository<Brand> _repo;
         private readonly IMongoRepository<Car> _carRepo;
-        private readonly IBrandServiceMapper _ownMapper;
         private readonly IMapper _mapper;
+        private readonly IBrandServiceMapper _ownMapper;
+        private readonly IMongoRepository<Brand> _repo;
+        private readonly IBrandService _service;
 
         public BrandServiceTest()
         {
@@ -33,7 +33,7 @@ namespace CarRent.Tests.CarManagement.Application
         {
             var addBrandDto = A.Fake<AddBrandDto>();
 
-            var answer =_service.AddBrand(addBrandDto);
+            var answer = _service.AddBrand(addBrandDto);
             A.CallTo(() => _mapper.Map<Brand>(addBrandDto)).MustHaveHappened();
             Assert.IsType<Task<ServiceResponse<GetBrandDto>>>(answer);
         }

@@ -1,9 +1,5 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
-using CarRent.CarManagement.Application;
-using CarRent.CarManagement.Application.Dto.BrandDto;
-using CarRent.CarManagement.Application.Mapper;
-using CarRent.CarManagement.Domain;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using CarRent.CustomerManagement.Application;
@@ -17,10 +13,10 @@ namespace CarRent.Tests.CustomerManagement.Application
 {
     public class CustomerServiceTests
     {
-        private readonly ICustomerService _service;
-        private readonly IMongoRepository<Customer> _repo;
-        private readonly ICustomerMapper _ownMapper;
         private readonly IMapper _mapper;
+        private readonly ICustomerMapper _ownMapper;
+        private readonly IMongoRepository<Customer> _repo;
+        private readonly ICustomerService _service;
 
         public CustomerServiceTests()
         {
@@ -35,7 +31,7 @@ namespace CarRent.Tests.CustomerManagement.Application
         {
             var dto = A.Fake<AddCustomerDto>();
 
-            var answer =_service.Add(dto);
+            var answer = _service.Add(dto);
             A.CallTo(() => _mapper.Map<Customer>(dto)).MustHaveHappened();
             Assert.IsType<Task<ServiceResponse<GetCustomerDto>>>(answer);
         }

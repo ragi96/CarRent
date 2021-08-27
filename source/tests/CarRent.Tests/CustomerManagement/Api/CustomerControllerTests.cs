@@ -14,6 +14,7 @@ namespace CarRent.Tests.CustomerManagement.Api
     {
         private readonly CustomerController _controller;
         private readonly ICustomerService _service;
+
         public CustomerControllerTests()
         {
             _service = A.Fake<ICustomerService>();
@@ -41,7 +42,6 @@ namespace CarRent.Tests.CustomerManagement.Api
 
             // Assert
             Assert.IsType<Task<IActionResult>>(result);
-
         }
     }
 }

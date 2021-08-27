@@ -2,8 +2,6 @@
 using CarRent.CarManagement.Application.Dto.CarClassDto;
 using CarRent.CarManagement.Application.Mapper;
 using CarRent.CarManagement.Domain;
-using FakeItEasy;
-using MongoDB.Bson;
 using Xunit;
 
 namespace CarRent.Tests.CarManagement.Application.Mapper
@@ -11,6 +9,7 @@ namespace CarRent.Tests.CarManagement.Application.Mapper
     public class CarClassServiceMapperTest
     {
         private readonly CarClassServiceMapper _mapper;
+
         public CarClassServiceMapperTest()
         {
             _mapper = new CarClassServiceMapper();
@@ -19,7 +18,7 @@ namespace CarRent.Tests.CarManagement.Application.Mapper
         [Fact]
         public void MapToGetCarClass_CheckType_ReturnShouldBeGetCarClassDto()
         {
-            var carClass = new CarClass() { ID = "0xasd34212asdf", Name = "Einfachklasse", DailyPrice = 10};
+            var carClass = new CarClass {ID = "0xasd34212asdf", Name = "Einfachklasse", DailyPrice = 10};
             var result = _mapper.MapToGetCarClassDto(carClass);
             Assert.IsType<GetCarClassDto>(result);
         }
@@ -27,7 +26,7 @@ namespace CarRent.Tests.CarManagement.Application.Mapper
         [Fact]
         public void MapToGetCarClass_CheckResult_NameShouldBeEinfachklasse()
         {
-            var carClass = new CarClass() { ID = "0xasd34212asdf", Name = "Einfachklasse", DailyPrice = 10 };
+            var carClass = new CarClass {ID = "0xasd34212asdf", Name = "Einfachklasse", DailyPrice = 10};
             var result = _mapper.MapToGetCarClassDto(carClass);
             Assert.Equal(carClass.Name, result.Name);
         }
@@ -35,7 +34,7 @@ namespace CarRent.Tests.CarManagement.Application.Mapper
         [Fact]
         public void MapToGetCarClass_CheckResult_IdShouldBe0xasd34212asdf()
         {
-            var carClass = new CarClass() { ID = "0xasd34212asdf", Name = "Einfachklasse", DailyPrice = 10 };
+            var carClass = new CarClass {ID = "0xasd34212asdf", Name = "Einfachklasse", DailyPrice = 10};
             var result = _mapper.MapToGetCarClassDto(carClass);
             Assert.Equal(carClass.ID, result.Id);
         }
@@ -43,7 +42,7 @@ namespace CarRent.Tests.CarManagement.Application.Mapper
         [Fact]
         public void MapToGetCarClass_CheckResult_DailyPriceShouldBeTen()
         {
-            var carClass = new CarClass() { ID = "0xasd34212asdf", Name = "Einfachklasse", DailyPrice = 10 };
+            var carClass = new CarClass {ID = "0xasd34212asdf", Name = "Einfachklasse", DailyPrice = 10};
             var result = _mapper.MapToGetCarClassDto(carClass);
             Assert.Equal(carClass.DailyPrice, result.DailyPrice);
         }
@@ -69,17 +68,15 @@ namespace CarRent.Tests.CarManagement.Application.Mapper
         private List<CarClass> GetTestCarClassList()
         {
             var list = new List<CarClass>();
-            var carClass1 = new CarClass() { ID = "0xasd34212asdf234", Name = "Einfachklasse", DailyPrice = 10};
+            var carClass1 = new CarClass {ID = "0xasd34212asdf234", Name = "Einfachklasse", DailyPrice = 10};
             list.Add(carClass1);
-            var carClass2 = new CarClass() { ID = "0xasd5678123axdas", Name = "Mittelklasse", DailyPrice = 20};
+            var carClass2 = new CarClass {ID = "0xasd5678123axdas", Name = "Mittelklasse", DailyPrice = 20};
             list.Add(carClass2);
-            var carClass3 = new CarClass() { ID = "0xasd34212asdfds34", Name = "Luxuswagen", DailyPrice = 30};
+            var carClass3 = new CarClass {ID = "0xasd34212asdfds34", Name = "Luxuswagen", DailyPrice = 30};
             list.Add(carClass3);
 
 
             return list;
         }
-
-
     }
 }

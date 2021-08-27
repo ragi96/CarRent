@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using CarRent.CarManagement.Application.Dto.BrandDto;
-using CarRent.CarManagement.Application.Mapper;
-using CarRent.CarManagement.Domain;
+﻿using System.Collections.Generic;
 using CarRent.CustomerManagement.Application.Dto;
 using CarRent.CustomerManagement.Application.Mapper;
 using CarRent.CustomerManagement.Domain;
@@ -13,6 +9,7 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
     public class CustomerMapperTests
     {
         private readonly CustomerMapper _mapper;
+
         public CustomerMapperTests()
         {
             _mapper = new CustomerMapper();
@@ -21,7 +18,11 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
         [Fact]
         public void MapToGetBrand_CheckType_ReturnShouldBeGetDto()
         {
-            var customer = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Fürth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var customer = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Fürth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             var result = _mapper.MapToGetDto(customer);
             Assert.IsType<GetCustomerDto>(result);
         }
@@ -29,7 +30,11 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
         [Fact]
         public void MapToGetBrand_CheckResult_FirstNameShouldBePaul()
         {
-            var customer = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Fürth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var customer = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Fürth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             var result = _mapper.MapToGetDto(customer);
             Assert.Equal(customer.FirstName, result.FirstName);
         }
@@ -37,7 +42,11 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
         [Fact]
         public void MapToGetBrand_CheckResult_LastNameShouldBeFurth()
         {
-            var customer = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var customer = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             var result = _mapper.MapToGetDto(customer);
             Assert.Equal(customer.LastName, result.LastName);
         }
@@ -45,14 +54,23 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
         [Fact]
         public void MapToGetBrand_CheckResult_StreetShouldBeBahn()
         {
-            var customer = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var customer = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             var result = _mapper.MapToGetDto(customer);
             Assert.Equal(customer.Street, result.Street);
         }
+
         [Fact]
         public void MapToGetBrand_CheckResult_HouseNumberShouldBe2a()
         {
-            var customer = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var customer = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             var result = _mapper.MapToGetDto(customer);
             Assert.Equal(customer.HouseNumber, result.HouseNumber);
         }
@@ -60,7 +78,11 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
         [Fact]
         public void MapToGetBrand_CheckResult_ZipShouldBe9000()
         {
-            var customer = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var customer = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             var result = _mapper.MapToGetDto(customer);
             Assert.Equal(customer.Zip, result.Zip);
         }
@@ -68,7 +90,11 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
         [Fact]
         public void MapToGetBrand_CheckResult_CityShouldBeSG()
         {
-            var customer = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var customer = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Furth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             var result = _mapper.MapToGetDto(customer);
             Assert.Equal(customer.City, result.City);
         }
@@ -76,7 +102,11 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
         [Fact]
         public void MapToGetBrand_CheckResult_IdShouldBe0x45465asdas12312d()
         {
-            var customer = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Fürth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var customer = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Fürth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             var result = _mapper.MapToGetDto(customer);
             Assert.Equal(customer.ID, result.Id);
         }
@@ -102,20 +132,38 @@ namespace CarRent.Tests.CustomerManagement.Application.Mapper
         private static List<Customer> GetTestCustomerList()
         {
             var list = new List<Customer>();
-            var cust1 = new Customer() { ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Fürth", Street = "Bahnhofstrasse", HouseNumber = "2a", Zip = "9000", City = "St. Gallen" };
+            var cust1 = new Customer
+            {
+                ID = "0x45465asdas12312d", FirstName = "Paul", LastName = "Fürth", Street = "Bahnhofstrasse",
+                HouseNumber = "2a", Zip = "9000", City = "St. Gallen"
+            };
             list.Add(cust1);
-            var cust2 = new Customer() { ID = "0x45465asdasdasdas", FirstName = "Philippe", LastName = "Gabriaux", Street = "Via dalla Staziun", HouseNumber = "31", Zip = "8374", City = "Dussnang" };
+            var cust2 = new Customer
+            {
+                ID = "0x45465asdasdasdas", FirstName = "Philippe", LastName = "Gabriaux", Street = "Via dalla Staziun",
+                HouseNumber = "31", Zip = "8374", City = "Dussnang"
+            };
             list.Add(cust2);
-            var cust3 = new Customer() { ID = "0x45465as123dasd", FirstName = "Wolfgang", LastName = "Mehler", Street = "Via Pestariso", HouseNumber = "53", Zip = "9016", City = "St. Gallen" };
+            var cust3 = new Customer
+            {
+                ID = "0x45465as123dasd", FirstName = "Wolfgang", LastName = "Mehler", Street = "Via Pestariso",
+                HouseNumber = "53", Zip = "9016", City = "St. Gallen"
+            };
             list.Add(cust3);
-            var cust4 = new Customer() { ID = "0x45465as576546dasd", FirstName = "Olum", LastName = "Golobus", Street = "Schwägalpstrasse", HouseNumber = "12", Zip = "9107", City = "Urnäsch" };
+            var cust4 = new Customer
+            {
+                ID = "0x45465as576546dasd", FirstName = "Olum", LastName = "Golobus", Street = "Schwägalpstrasse",
+                HouseNumber = "12", Zip = "9107", City = "Urnäsch"
+            };
             list.Add(cust4);
-            var cust5 = new Customer() { ID = "0x45465acv43sdasd", FirstName = "Kevin", LastName = "Neumann", Street = "Sonnenbergstr", HouseNumber = "170", Zip = "5620", City = "Bremgarten" };
+            var cust5 = new Customer
+            {
+                ID = "0x45465acv43sdasd", FirstName = "Kevin", LastName = "Neumann", Street = "Sonnenbergstr",
+                HouseNumber = "170", Zip = "5620", City = "Bremgarten"
+            };
             list.Add(cust5);
 
             return list;
         }
-
-
     }
 }
