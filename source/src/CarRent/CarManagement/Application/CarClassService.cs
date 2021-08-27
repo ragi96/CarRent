@@ -45,7 +45,7 @@ namespace CarRent.CarManagement.Application
         {
             var serviceResponse = new ServiceResponse<List<GetCarClassDto>>();
             var carClasses = await _carClassRepository.GetAll();
-            serviceResponse.Data = _carClassMapper.MapToGetCarClassList(carClasses);
+            serviceResponse.Data = _carClassMapper.MapToGetCarClassDtoList(carClasses);
             return serviceResponse;
         }
 
@@ -66,7 +66,7 @@ namespace CarRent.CarManagement.Application
                 await _carClassRepository.DeleteById(id);
                 var serviceResponse = new ServiceResponse<List<GetCarClassDto>>();
                 var cars = await _carClassRepository.GetAll();
-                serviceResponse.Data = _carClassMapper.MapToGetCarClassList(cars);
+                serviceResponse.Data = _carClassMapper.MapToGetCarClassDtoList(cars);
                 return serviceResponse;
             }
 

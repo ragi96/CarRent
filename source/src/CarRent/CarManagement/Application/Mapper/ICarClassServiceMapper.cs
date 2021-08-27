@@ -8,6 +8,6 @@ namespace CarRent.CarManagement.Application.Mapper
     {
         GetCarClassDto MapToGetCarClassDto(CarClass carClass);
 
-        List<GetCarClassDto> MapToGetCarClassList(List<CarClass> carClassesList);
+        List<GetCarClassDto> MapToGetCarClassDtoList(List<CarClass> carClassesList);
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.CarManagement.Domain;
 
 namespace CarRent.CarManagement.Application.Mapper
 {
+    [ExcludeFromCodeCoverage]
     public class CarServiceMapper : ICarServiceMapper
     {
         private readonly BrandServiceMapper _brandServiceMapper;
@@ -23,6 +25,7 @@ namespace CarRent.CarManagement.Application.Mapper
             {
                 Id = car.ID,
                 Name = car.Name,
+                ConstructionYear = car.ConstructionYear,
                 BrandDto = _brandServiceMapper.MapToGetBrandDto(brand),
                 CarClassDto = _carClassServiceMapper.MapToGetCarClassDto(carClass)
             };

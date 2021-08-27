@@ -8,7 +8,7 @@ namespace CarRent.CarManagement.Application.Dto.CarDto
     {
         [Required] public string Name { get; set; }
 
-        [Required] public string ConstructionYear { get; set; }
+        [Required] public int ConstructionYear { get; set; }
 
         [Required] public string BrandId { get; set; }
 

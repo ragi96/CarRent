@@ -16,7 +16,7 @@ namespace CarRent.CarManagement.Application.Mapper
             };
         }
 
-        public List<GetCarClassDto> MapToGetCarClassList(List<CarClass> carClassesList)
+        public List<GetCarClassDto> MapToGetCarClassDtoList(List<CarClass> carClassesList)
         {
             var getCarClassesDtoList = new List<GetCarClassDto>();
             foreach (var carClass in carClassesList) getCarClassesDtoList.Add(MapToGetCarClassDto(carClass));
