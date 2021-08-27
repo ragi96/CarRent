@@ -6,6 +6,8 @@ using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.CarManagement.Domain;
 using CarRent.CustomerManagement.Application.Dto;
 using CarRent.CustomerManagement.Domain;
+using CarRent.InvoiceManagement.Application.Dto;
+using CarRent.InvoiceManagement.Domain;
 using CarRent.ReservationManagement.Application.Dto;
 using CarRent.ReservationManagement.Domain;
 
