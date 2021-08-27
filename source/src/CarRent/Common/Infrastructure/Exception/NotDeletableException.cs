@@ -8,11 +8,10 @@ namespace CarRent.Common.Infrastructure
     [Serializable]
     public class NotDeletableException : Exception
     {
-        public override string Message { get; } = "Not Deletable";
-
         public NotDeletableException()
         {
         }
+
         public NotDeletableException(string message)
             : base(message)
         {
@@ -27,5 +26,7 @@ namespace CarRent.Common.Infrastructure
             : base(info, context)
         {
         }
+
+        public override string Message { get; } = "Not Deletable";
     }
 }

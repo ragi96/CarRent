@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CarRent.CustomerManagement.Application.Dto.CarDto;
+using CarRent.CustomerManagement.Application.Dto;
 using CarRent.CustomerManagement.Domain;
 
 namespace CarRent.CustomerManagement.Application.Mapper
@@ -11,6 +11,12 @@ namespace CarRent.CustomerManagement.Application.Mapper
             return new()
             {
                 Id = customer.ID,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                Street = customer.Street,
+                HouseNumber = customer.HouseNumber,
+                Zip = customer.Zip,
+                City = customer.City
             };
         }
 

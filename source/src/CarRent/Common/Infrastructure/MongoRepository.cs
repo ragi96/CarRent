@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -38,6 +37,5 @@ namespace CarRent.Common.Infrastructure
         {
             return DB.Find<TDocument>().ManyAsync(filterExpression);
         }
-
     }
 }

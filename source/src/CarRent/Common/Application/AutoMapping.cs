@@ -4,7 +4,7 @@ using CarRent.CarManagement.Application.Dto.BrandDto;
 using CarRent.CarManagement.Application.Dto.CarClassDto;
 using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.CarManagement.Domain;
-using CarRent.CustomerManagement.Application.Dto.CarDto;
+using CarRent.CustomerManagement.Application.Dto;
 using CarRent.CustomerManagement.Domain;
 
 namespace CarRent.Common.Application

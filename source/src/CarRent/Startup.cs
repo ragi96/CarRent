@@ -1,18 +1,5 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using CarRent.CarManagement.Application;
 using CarRent.CarManagement.Application.Mapper;
 using CarRent.Common.Application;
@@ -20,7 +7,12 @@ using CarRent.Common.Infrastructure;
 using CarRent.Connection;
 using CarRent.CustomerManagement.Application;
 using CarRent.CustomerManagement.Application.Mapper;
-using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using MongoDB.Entities;
 
 namespace CarRent
@@ -38,10 +30,11 @@ namespace CarRent
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Task.Run(async () => {
-                    var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-                    await DB.InitAsync(settings.DatabaseName, settings.HostAddress, settings.Port);
-                    await DB.MigrateAsync();
+            Task.Run(async () =>
+            {
+                var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+                await DB.InitAsync(settings.DatabaseName, settings.HostAddress, settings.Port);
+                await DB.MigrateAsync();
             }).GetAwaiter().GetResult();
 
             services.AddControllers();
@@ -51,7 +44,7 @@ namespace CarRent
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CarRent.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "CarRent.API", Version = "v1"});
             });
             services.AddScoped<IBrandServiceMapper, BrandServiceMapper>();
             services.AddScoped<ICarServiceMapper, CarServiceMapper>();
@@ -82,10 +75,7 @@ namespace CarRent
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

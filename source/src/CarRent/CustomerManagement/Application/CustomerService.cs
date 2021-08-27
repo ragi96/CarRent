@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using CarRent.CarManagement.Application.Dto.CarDto;
-using CarRent.CarManagement.Domain;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
-using CarRent.CustomerManagement.Application.Dto.CarDto;
+using CarRent.CustomerManagement.Application.Dto;
 using CarRent.CustomerManagement.Application.Mapper;
 using CarRent.CustomerManagement.Domain;
 
@@ -13,21 +11,22 @@ namespace CarRent.CustomerManagement.Application
 {
     public class CustomerService : ICustomerService
     {
-        private readonly IMongoRepository<Customer> _customerRepository;
         private readonly ICustomerMapper _customerMapper;
+        private readonly IMongoRepository<Customer> _customerRepository;
         private readonly IMapper _mapper;
 
-        public CustomerService(IMongoRepository<Customer> customerRepository, ICustomerMapper customerMapper, IMapper mapper)
+        public CustomerService(IMongoRepository<Customer> customerRepository, ICustomerMapper customerMapper,
+            IMapper mapper)
         {
             _customerRepository = customerRepository;
             _customerMapper = customerMapper;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<GetCustomerDto>> Add(AddCustomerDto carDto)
+        public async Task<ServiceResponse<GetCustomerDto>> Add(AddCustomerDto customerDto)
         {
             var serviceResponse = new ServiceResponse<GetCustomerDto>();
-            var customer = _mapper.Map<Customer>(carDto);
+            var customer = _mapper.Map<Customer>(customerDto);
             await _customerRepository.Save(customer);
             return serviceResponse;
         }

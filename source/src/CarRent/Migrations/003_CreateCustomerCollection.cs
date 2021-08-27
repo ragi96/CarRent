@@ -1,14 +1,11 @@
-﻿
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
-using CarRent.CarManagement.Domain;
 using CarRent.CustomerManagement.Domain;
 using MongoDB.Driver;
 using MongoDB.Entities;
 
 namespace CarRent.Migrations
 {
-
     [ExcludeFromCodeCoverage]
     public class _003_CreateCustomerCollection : IMigration
     {
@@ -17,5 +14,4 @@ namespace CarRent.Migrations
             await DB.CreateCollection(new CreateCollectionOptions<Customer>());
         }
     }
-
 }

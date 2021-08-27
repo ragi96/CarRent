@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CarRent.CustomerManagement.Application.Dto.CarDto;
+using CarRent.CustomerManagement.Application.Dto;
 using CarRent.CustomerManagement.Domain;
 
 namespace CarRent.CustomerManagement.Application.Mapper

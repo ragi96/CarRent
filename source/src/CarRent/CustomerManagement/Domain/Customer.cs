@@ -7,7 +7,7 @@ namespace CarRent.CustomerManagement.Domain
     [Collection("Customer")]
     public class Customer : Entity
     {
-        public string FistName { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Street { get; set; }
         public string HouseNumber { get; set; }

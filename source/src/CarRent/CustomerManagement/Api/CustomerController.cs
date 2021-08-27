@@ -1,9 +1,7 @@
 ﻿using System.Threading.Tasks;
-using CarRent.CarManagement.Application;
-using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.Common.Infrastructure;
 using CarRent.CustomerManagement.Application;
-using CarRent.CustomerManagement.Application.Dto.CarDto;
+using CarRent.CustomerManagement.Application.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

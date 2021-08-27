@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using CarRent.CarManagement.Domain;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Authentication;
-using MongoDB.Driver.Core.Operations;
 using MongoDB.Entities;
 
 namespace CarRent.Migrations
 {
-
     [ExcludeFromCodeCoverage]
     public class _001_CreateCarAndBrandCollection : IMigration
     {
@@ -22,5 +16,4 @@ namespace CarRent.Migrations
             await DB.CreateCollection(new CreateCollectionOptions<Car>());
         }
     }
-
 }
