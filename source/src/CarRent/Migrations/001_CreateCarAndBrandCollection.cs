@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CarRent.CarManagment.Domain;
+using CarRent.CarManagement.Domain;
 using MongoDB.Driver;
 using MongoDB.Driver.Core.Authentication;
 using MongoDB.Driver.Core.Operations;

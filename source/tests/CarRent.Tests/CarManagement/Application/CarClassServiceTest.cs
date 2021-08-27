@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
-using CarRent.CarManagment.Application;
-using CarRent.CarManagment.Application.Dto.CarClassDto;
-using CarRent.CarManagment.Application.Mapper;
-using CarRent.CarManagment.Domain;
+using CarRent.CarManagement.Application;
+using CarRent.CarManagement.Application.Dto.CarClassDto;
+using CarRent.CarManagement.Application.Mapper;
+using CarRent.CarManagement.Domain;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using FakeItEasy;

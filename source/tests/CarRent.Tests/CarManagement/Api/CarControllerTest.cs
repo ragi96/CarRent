@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CarRent.CarManagment.Application;
+using CarRent.CarManagement.Api;
+using CarRent.CarManagement.Application;
+using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.Common.Application;
-using CarRent.Controllers;
 using FakeItEasy;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;

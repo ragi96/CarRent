@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using CarRent.CarManagment.Application;
-using CarRent.CarManagment.Application.Dto.CarClassDto;
-using CarRent.CarManagment.Domain;
-using MongoDB.Bson;
+﻿using AutoMapper;
+using CarRent.CarManagement.Application.Dto.BrandDto;
+using CarRent.CarManagement.Application.Dto.CarClassDto;
+using CarRent.CarManagement.Application.Dto.CarDto;
+using CarRent.CarManagement.Domain;
 
 namespace CarRent.Common.Application
 {
