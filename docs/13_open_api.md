@@ -1,4 +1,4 @@
 Open API 
 =================
 
-!!swagger OpenApi.json!!
+!!swagger-http https://ragi96.github.io/CarRent/OpenApi.json!!
