@@ -15,21 +15,18 @@ namespace CarRent.InvoiceManagement.Application
 {
     public class InvoiceService : IInvoiceService
     {
-        private readonly IMapper _mapper;
         private readonly IInvoiceMapper _invoiceMapper;
         private readonly IMongoRepository<Invoice> _invoiceRepository;
         private readonly IMongoRepository<Reservation> _reservationRepository;
         private readonly IMongoRepository<Car> _carRepository;
 
         public InvoiceService(IMongoRepository<Invoice> invoiceRepository, IMongoRepository<Reservation> reservationRepository, IMongoRepository<Car> carRepository,
-            IInvoiceMapper invoiceMapper,
-            IMapper mapper)
+            IInvoiceMapper invoiceMapper)
         {
             _invoiceMapper = invoiceMapper;
             _invoiceRepository = invoiceRepository;
             _reservationRepository = reservationRepository;
             _carRepository = carRepository;
-            _mapper = mapper;
         }
 
         public async Task<ServiceResponse<GetInvoiceDto>> Create(string reservationId, AddInvoiceDto invoiceDto)
