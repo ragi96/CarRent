@@ -22,11 +22,11 @@ namespace CarRent.Migrations
             var carClasses = carClassRepo.GetAll().Result;
 
             var rand = new Random();
-            for (int i = 0; i < 20; i++)
+            for (var i = 0; i < 20; i++)
             {
-                var custNum = rand.Next(0, customers.Count-1);
-                var carNum = rand.Next(0, cars.Count-1);
-                var carClassNum = rand.Next(0, carClasses.Count-1);
+                var custNum = rand.Next(0, customers.Count - 1);
+                var carNum = rand.Next(0, cars.Count - 1);
+                var carClassNum = rand.Next(0, carClasses.Count - 1);
                 var customer = customers[custNum];
                 var car = cars[carNum];
                 var carClass = carClasses[carClassNum];
@@ -39,20 +39,19 @@ namespace CarRent.Migrations
                 } while (startDate < endDate);
 
 
-                var res = new Reservation() { EndDate = startDate, StartDate = endDate};
+                var res = new Reservation {EndDate = startDate, StartDate = endDate};
                 res.Customer = customer;
                 res.WishCar = car;
                 res.CarClass = carClass;
                 await res.SaveAsync();
-
             }
         }
 
         public DateTime RandomDay()
         {
-            Random gen = new Random();
-            DateTime start = new DateTime(2020, 1, 1);
-            int range = (DateTime.Today - start).Days;
+            var gen = new Random();
+            var start = new DateTime(2020, 1, 1);
+            var range = (DateTime.Today - start).Days;
             return start.AddDays(gen.Next(range));
         }
     }

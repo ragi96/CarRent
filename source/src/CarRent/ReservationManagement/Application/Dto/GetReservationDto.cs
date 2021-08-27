@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using CarRent.CarManagement.Application.Dto.CarClassDto;
 using CarRent.CarManagement.Application.Dto.CarDto;
 using CarRent.CustomerManagement.Application.Dto;

@@ -11,11 +11,12 @@ namespace CarRent.ReservationManagement.Application
 {
     public class ReservationService : IReservationService
     {
+        private readonly IMapper _mapper;
         private readonly IReservationMapper _reservationMapper;
         private readonly IMongoRepository<Reservation> _reservationRepository;
-        private readonly IMapper _mapper;
 
-        public ReservationService(IMongoRepository<Reservation> reservationRepository, IReservationMapper reservationMapper,
+        public ReservationService(IMongoRepository<Reservation> reservationRepository,
+            IReservationMapper reservationMapper,
             IMapper mapper)
         {
             _reservationMapper = reservationMapper;
@@ -52,7 +53,8 @@ namespace CarRent.ReservationManagement.Application
             var serviceResponse = new ServiceResponse<GetReservationDto>();
             var reservations = _mapper.Map<Reservation>(customerDto);
             await _reservationRepository.Save(reservations);
-            serviceResponse.Data = _reservationMapper.MapToGetDto(await _reservationRepository.GetById(reservations.ID));
+            serviceResponse.Data =
+                _reservationMapper.MapToGetDto(await _reservationRepository.GetById(reservations.ID));
             return serviceResponse;
         }
 

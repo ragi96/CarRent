@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using CarRent.CarManagement.Domain;
 using CarRent.CustomerManagement.Domain;
 using MongoDB.Entities;

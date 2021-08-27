@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
-using CarRent.CustomerManagement.Domain;
 using CarRent.ReservationManagement.Domain;
 using MongoDB.Driver;
 using MongoDB.Entities;

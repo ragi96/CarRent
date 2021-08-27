@@ -8,10 +8,10 @@ namespace CarRent.ReservationManagement.Application.Mapper
 {
     public class ReservationMapper : IReservationMapper
     {
-
-        private readonly CustomerMapper _customerMapper;
         private readonly CarClassServiceMapper _carClassMapper;
         private readonly CarServiceMapper _carMapper;
+
+        private readonly CustomerMapper _customerMapper;
 
         public ReservationMapper()
         {
@@ -19,17 +19,17 @@ namespace CarRent.ReservationManagement.Application.Mapper
             _carClassMapper = new CarClassServiceMapper();
             _carMapper = new CarServiceMapper();
         }
+
         public GetReservationDto MapToGetDto(Reservation reservation)
         {
-
             var customer = reservation.Customer.ToEntityAsync().Result;
-            return new()
+            return new GetReservationDto()
             {
                 Id = reservation.ID,
                 Customer = _customerMapper.MapToGetDto(customer),
                 CarClass = _carClassMapper.MapToGetCarClassDto(reservation.CarClass),
                 WishCar = _carMapper.MapToGetCarDto(reservation.WishCar),
-                EndDate = reservation.EndDate, 
+                EndDate = reservation.EndDate,
                 StartDate = reservation.StartDate
             };
         }
