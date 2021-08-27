@@ -2,10 +2,6 @@
 using AutoMapper;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
-using CarRent.CustomerManagement.Application;
-using CarRent.CustomerManagement.Application.Dto;
-using CarRent.CustomerManagement.Application.Mapper;
-using CarRent.CustomerManagement.Domain;
 using CarRent.ReservationManagement.Application;
 using CarRent.ReservationManagement.Application.Dto;
 using CarRent.ReservationManagement.Application.Mapper;

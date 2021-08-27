@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CarRent.Common.Application;
-using CarRent.CustomerManagement.Api;
-using CarRent.CustomerManagement.Application;
 using CarRent.CustomerManagement.Application.Dto;
 using CarRent.ReservationManagement.Api;
 using CarRent.ReservationManagement.Application;

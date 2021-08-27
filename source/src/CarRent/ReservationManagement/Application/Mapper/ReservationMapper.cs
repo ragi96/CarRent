@@ -23,7 +23,7 @@ namespace CarRent.ReservationManagement.Application.Mapper
         public GetReservationDto MapToGetDto(Reservation reservation)
         {
             var customer = reservation.Customer.ToEntityAsync().Result;
-            return new GetReservationDto()
+            return new GetReservationDto
             {
                 Id = reservation.ID,
                 Customer = _customerMapper.MapToGetDto(customer),

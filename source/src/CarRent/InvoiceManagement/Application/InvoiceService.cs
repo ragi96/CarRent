@@ -1,26 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using AutoMapper;
 using CarRent.CarManagement.Domain;
 using CarRent.Common.Application;
 using CarRent.Common.Infrastructure;
 using CarRent.InvoiceManagement.Application.Dto;
 using CarRent.InvoiceManagement.Application.Mapper;
 using CarRent.InvoiceManagement.Domain;
-using CarRent.ReservationManagement.Application.Dto;
-using CarRent.ReservationManagement.Application.Mapper;
 using CarRent.ReservationManagement.Domain;
 
 namespace CarRent.InvoiceManagement.Application
 {
     public class InvoiceService : IInvoiceService
     {
+        private readonly IMongoRepository<Car> _carRepository;
         private readonly IInvoiceMapper _invoiceMapper;
         private readonly IMongoRepository<Invoice> _invoiceRepository;
         private readonly IMongoRepository<Reservation> _reservationRepository;
-        private readonly IMongoRepository<Car> _carRepository;
 
-        public InvoiceService(IMongoRepository<Invoice> invoiceRepository, IMongoRepository<Reservation> reservationRepository, IMongoRepository<Car> carRepository,
+        public InvoiceService(IMongoRepository<Invoice> invoiceRepository,
+            IMongoRepository<Reservation> reservationRepository, IMongoRepository<Car> carRepository,
             IInvoiceMapper invoiceMapper)
         {
             _invoiceMapper = invoiceMapper;
@@ -35,7 +33,7 @@ namespace CarRent.InvoiceManagement.Application
             var car = _carRepository.GetById(invoiceDto.CarId).Result;
             var customer = reservation.Customer.ToEntityAsync().Result;
 
-            var invoice = new Invoice()
+            var invoice = new Invoice
             {
                 CarClass = reservation.CarClass,
                 Car = car,
@@ -65,6 +63,5 @@ namespace CarRent.InvoiceManagement.Application
             serviceResponse.Data = _invoiceMapper.MapToGetDtoList(invoice);
             return serviceResponse;
         }
-
     }
 }

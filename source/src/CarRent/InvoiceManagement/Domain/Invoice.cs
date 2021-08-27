@@ -16,9 +16,7 @@ namespace CarRent.InvoiceManagement.Domain
         public Date EndDate { get; set; }
 
         [Ignore]
-        public float Price
-        {
-            get => (float) EndDate.DateTime.Date.Subtract(StartDate.DateTime.Date).Days * CarClass.DailyPrice;
-        }
+        public float Price =>
+            (float) EndDate.DateTime.Date.Subtract(StartDate.DateTime.Date).Days * CarClass.DailyPrice;
     }
 }
