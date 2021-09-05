@@ -2,52 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ragi96.github.io/CarRent/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ragi96.github.io/CarRent/01_Einleitung_und_Ziele/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ragi96.github.io/CarRent/02_4C_Pattern/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <loc>https://ragi96.github.io/CarRent/02_Kontext/</loc>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ragi96.github.io/CarRent/03_domain_model/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ragi96.github.io/CarRent/04_use_case/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ragi96.github.io/CarRent/05_4%2B1/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ragi96.github.io/CarRent/11_Technische_Schulden_und_Weiterentwicklung/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <loc>https://ragi96.github.io/CarRent/06_Testing_und_Quality/</loc>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ragi96.github.io/CarRent/12_Glossar/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <loc>https://ragi96.github.io/CarRent/07_Technische_Schulden_und_Weiterentwicklung/</loc>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ragi96.github.io/CarRent/13_open_api/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <loc>https://ragi96.github.io/CarRent/08_Glossar/</loc>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ragi96.github.io/CarRent/14_mk_docs/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <loc>https://ragi96.github.io/CarRent/09_open_api/</loc>
+         <lastmod>2021-09-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ragi96.github.io/CarRent/10_mk_docs/</loc>
+         <lastmod>2021-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
