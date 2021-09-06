@@ -12,6 +12,3 @@ Use Case
 * Kunde kann sich einloggen
 * Sein eigenes Profil verwalten können
 * Kunde kann eine Reservation erstellen
-
-
-
