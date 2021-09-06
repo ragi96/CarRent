@@ -25,3 +25,7 @@ Sonarcloud wurde auch in den Buildprozess eingebaut um statische Code-Analysen d
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ragi96_CarRent&metric=ncloc)](https://sonarcloud.io/dashboard?id=ragi96_CarRent)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=ragi96_CarRent&metric=sqale_index)](https://sonarcloud.io/dashboard?id=ragi96_CarRent)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=ragi96_CarRent&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=ragi96_CarRent)
+
+K6 Load Test
+-----------------------
+<iframe width=700, height=500 frameBorder=0 src="https://htmlpreview.github.io/?https://github.com/ragi96/CarRent/blob/main/artifacts/k6report.html"></iframe>
