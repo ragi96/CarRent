@@ -28,4 +28,4 @@ Sonarcloud wurde auch in den Buildprozess eingebaut um statische Code-Analysen d
 
 K6 Load Test
 -----------------------
-<iframe width=700, height=500 frameBorder=0 src="https://htmlpreview.github.io/?https://github.com/ragi96/CarRent/blob/main/artifacts/k6report.html"></iframe>
+<iframe width="700" height="750" frameBorder="0" src="https://htmlpreview.github.io/?https://github.com/ragi96/CarRent/blob/main/artifacts/k6report.html"></iframe>
